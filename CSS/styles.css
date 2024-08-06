@@ -8,6 +8,45 @@ body {
     font-family: Arial, sans-serif;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 100px; /* 100px padding on both sides */
+    box-sizing: border-box;
+    opacity: 1; /* Make sure it's fully visible initially */
+    transition: opacity 1s;
+}
+
+h1 {
+    margin: 0;
+    color: #ff5964;
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+nav button {
+    font-size: 20px; /* Font size for navigation buttons */
+    color: #ff5964;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 1s, transform 0.3s;
+    outline: none;
+    text-transform: uppercase;
+}
+
+nav button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
 button {
     font-size: 40px; /* Initial font size */
     color: #ff5964; /* Font color */
