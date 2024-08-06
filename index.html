@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
+    <button id="fadeButton">Welcome to My Website</button>
+
+    <script>
+        document.getElementById('fadeButton').addEventListener('click', function() {
+            this.style.transition = 'opacity 1s';
+            this.style.opacity = '0';
+        });
+    </script>
 </body>
 </html>
