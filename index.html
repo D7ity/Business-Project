@@ -7,12 +7,26 @@
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
+    <header>
+        <h1>Title</h1>
+        <nav id="navMenu">
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+            <button>Button 4</button>
+        </nav>
+    </header>
+    
     <button id="fadeButton">Dare to Open Your Own Casket?</button>
 
     <script>
         document.getElementById('fadeButton').addEventListener('click', function() {
             this.style.transition = 'opacity 1s';
             this.style.opacity = '0';
+
+            // Fade out the title and navigation menu
+            document.querySelector('header').style.transition = 'opacity 1s';
+            document.querySelector('header').style.opacity = '0';
         });
     </script>
 </body>
