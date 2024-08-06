@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>Title</h1>
         <nav id="navMenu">
             <button>Button 1</button>
@@ -21,12 +21,20 @@
 
     <script>
         document.getElementById('fadeButton').addEventListener('click', function() {
+            // Fade out the button
             this.style.transition = 'opacity 1s';
             this.style.opacity = '0';
 
-            // Fade out the title and navigation menu
-            document.querySelector('header').style.transition = 'opacity 1s';
-            document.querySelector('header').style.opacity = '0';
+            // Fade out the header
+            const header = document.getElementById('header');
+            header.style.transition = 'opacity 1s';
+            header.style.opacity = '0';
+
+            // Wait for the header to fade out and then display the nav menu
+            setTimeout(() => {
+                const navMenu = document.getElementById('navMenu');
+                navMenu.style.opacity = '1';
+            }, 1000); // Delay must match the fade-out duration
         });
     </script>
 </body>
