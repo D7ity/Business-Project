@@ -8,20 +8,11 @@
 </head>
 <body>
     <button id="fadeButton">Dare to Open Your Own Casket?</button>
-    <img id="skullImage" src="image.png" alt="Skull" style="display: none;">
 
     <script>
         document.getElementById('fadeButton').addEventListener('click', function() {
             this.style.transition = 'opacity 1s';
             this.style.opacity = '0';
-
-            setTimeout(function() {
-                document.getElementById('fadeButton').style.display = 'none';
-                const skull = document.getElementById('skullImage');
-                skull.style.display = 'block';
-                skull.style.transition = 'opacity 1s';
-                skull.style.opacity = '1';
-            }, 1000);
         });
     </script>
 </body>
