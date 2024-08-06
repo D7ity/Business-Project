@@ -9,17 +9,18 @@ body {
 }
 
 button {
-    font-size: 40px; /* Updated font size */
-    color: #ff5964; /* Updated font color */
-    font-weight: bold; /* To make the text bold like in the image */
+    font-size: 40px; /* Initial font size */
+    color: #ff5964; /* Font color */
+    font-weight: bold; /* Bold text */
     background: none;
     border: none;
     cursor: pointer;
-    transition: opacity 1s;
+    transition: opacity 1s, transform 0.3s; /* Added transform transition */
     outline: none;
-    text-transform: uppercase; /* This makes the text appear in uppercase */
+    text-transform: uppercase; /* Uppercase text */
 }
 
 button:hover {
     opacity: 0.8;
+    transform: scale(1.1); /* Enlarge by 10% */
 }
