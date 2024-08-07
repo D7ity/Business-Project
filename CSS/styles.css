@@ -51,15 +51,21 @@ nav {
     color: #ffcccb;
 }
 
-.navButton.active::after {
+ .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -15px;
+    bottom: -15px; /* Lower the dot by 10px */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
     color: #ff5964;
 }
+
+/* For the "Support" button, drop the dot by another 10px */
+.navButton.active:last-child::after {
+    bottom: -30px; /* Additional 10px drop */
+}
+
 
 /* Specific style for the "Support" button */
 .navButton:last-child {
