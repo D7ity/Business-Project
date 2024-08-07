@@ -16,7 +16,7 @@ header {
     max-width: 1200px;
     padding: 0 100px;
     box-sizing: border-box;
-    opacity: 0; /* Start hidden */
+    opacity: 1;
     transition: opacity 1s;
     position: absolute;
     top: 50px;
@@ -58,28 +58,20 @@ nav {
 .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -40px; /* Drop dot by 40px */
+    bottom: -20px; /* Raised dot by 20px */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
     color: #ff5964;
 }
 
-button {
-    font-size: 40px;
-    color: #ff5964;
-    font-weight: bold;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: opacity 1s, transform 0.3s;
-    outline: none;
-    text-transform: uppercase;
+.supportButton {
+    border: 2px solid #ff5964; /* Border for Support button */
+    border-radius: 5px; /* Rounded corners */
 }
 
-button:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
+.supportButton.active {
+    border: 2px solid #ff5964; /* Border for active state of Support button */
 }
 
 /* Responsive Styles */
@@ -102,40 +94,7 @@ button:hover {
         font-size: 18px;
     }
 
-    h1 {
-        font-size: 1.2rem;
-    }
-
     .navButton.active::after {
-        bottom: -50px; /* Adjust dot position for mobile view */
+        bottom: -30px; /* Adjust dot position for mobile view */
     }
-}
-/* Adjust the dot position for all active buttons */
-.navButton.active::after {
-    content: '•';
-    position: absolute;
-    bottom: -30px; /* Raise dot by 20px from original -50px to -30px */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    color: #ff5964;
-}
-
-.navButton.supportButton.active::after {
-    bottom: -40px; /* Further adjustment for support button */
-}
-
-.supportButton {
-    border: 2px solid #ff5964; /* Border color */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px; /* Padding to match other buttons */
-    background: none; /* No fill */
-    box-sizing: border-box; /* Ensure border is included in element's size */
-}
-
-/* Ensure the active border is shown on all tabs */
-.navButton.active {
-    border: 2px solid #ff5964; /* Add border color to all active buttons */
-    border-radius: 5px; /* Rounded corners */
-    box-sizing: border-box; /* Ensure border is included in element's size */
 }
