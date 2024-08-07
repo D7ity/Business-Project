@@ -16,21 +16,25 @@ header {
     max-width: 1200px;
     padding: 0 100px;
     box-sizing: border-box;
-    opacity: 1; /* Ensure header is visible */
+    opacity: 1;
     transition: opacity 1s;
     position: absolute;
     top: 50px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 h1 {
     margin: 0;
     color: #ff5964;
     font-size: 1.5rem;
+    flex: 1; /* Allow the title to take up space and align properly */
 }
 
 nav {
     display: flex;
     gap: 20px;
+    flex: 1; /* Ensure nav takes space as well */
+    justify-content: flex-end; /* Align nav buttons to the right */
 }
 
 .navButton {
@@ -54,24 +58,11 @@ nav {
 .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -15px; /* Lower the dot by 10px */
+    bottom: -30px; /* Drop dot by 30px */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
     color: #ff5964;
-}
-
-/* For the "Support" button, drop the dot by another 10px */
-.navButton.active:last-child::after {
-    bottom: -30px; /* Additional 10px drop */
-}
-
-/* Specific style for the "Support" button */
-.navButton:last-child {
-    border: 2px solid #ff5964;
-    border-radius: 5px;
-    padding: 8px 16px;
-    background: none;
 }
 
 button {
@@ -90,3 +81,33 @@ button:hover {
     opacity: 0.8;
     transform: scale(1.1);
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack title and nav vertically */
+        align-items: center;
+        padding: 20px;
+        position: static; /* Remove absolute positioning */
+        top: auto; /* Remove top positioning */
+    }
+
+    nav {
+        flex-direction: column; /* Stack nav items vertically */
+        gap: 10px;
+        align-items: center;
+    }
+
+    .navButton {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .navButton.active::after {
+        bottom: -40px; /* Adjust dot position for mobile view */
+    }
+}
+
