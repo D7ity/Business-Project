@@ -13,24 +13,24 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Limit width for better control */
-    padding: 0 100px; /* 100px padding on both sides */
+    max-width: 1200px;
+    padding: 0 100px;
     box-sizing: border-box;
-    opacity: 0; /* Start hidden */
+    opacity: 1; /* Ensure header is visible */
     transition: opacity 1s;
-    position: absolute; /* Positioning header */
-    top: 50px; /* Move down by 50px */
+    position: absolute;
+    top: 50px;
 }
 
 h1 {
     margin: 0;
     color: #ff5964;
-    font-size: 1.5rem; /* Smaller font size for the title */
+    font-size: 1.5rem;
 }
 
 nav {
     display: flex;
-    gap: 20px; /* Space between buttons */
+    gap: 20px;
 }
 
 .navButton {
@@ -54,7 +54,7 @@ nav {
 .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -15px; /* Lower the dot by 10px */
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
@@ -63,27 +63,27 @@ nav {
 
 /* Specific style for the "Support" button */
 .navButton:last-child {
-    border: 2px solid #ff5964; /* Add a border */
-    border-radius: 5px; /* 5px radius for rounded corners */
-    padding: 8px 16px; /* Adjust padding to fit the border */
-    background: none; /* No fill */
+    border: 2px solid #ff5964;
+    border-radius: 5px;
+    padding: 8px 16px;
+    background: none;
 }
 
 button {
-    font-size: 40px; /* Initial font size */
-    color: #ff5964; /* Font color */
-    font-weight: bold; /* Bold text */
+    font-size: 40px;
+    color: #ff5964;
+    font-weight: bold;
     background: none;
     border: none;
     cursor: pointer;
-    transition: opacity 1s, transform 0.3s; /* Added transform transition */
+    transition: opacity 1s, transform 0.3s;
     outline: none;
-    text-transform: uppercase; /* Uppercase text */
+    text-transform: uppercase;
 }
 
 button:hover {
     opacity: 0.8;
-    transform: scale(1.1); /* Enlarge by 10% */
+    transform: scale(1.1);
 }
 
 
