@@ -10,7 +10,7 @@
     <header id="header">
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
-            <a href="index.html" class="navButton">Main</a>
+            <a href="index.html" class="navButton active">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
             <a href="support.html" class="navButton">Support</a>
@@ -20,44 +20,21 @@
     <button id="fadeButton">Dare to Open Your Own Casket?</button>
 
     <script>
-        // Check if the user has already clicked the fade button
-        if (sessionStorage.getItem('dareClicked')) {
-            document.getElementById('fadeButton').style.display = 'none';
-            document.getElementById('header').style.opacity = '1';
-            setActiveButton();
-        }
-
         document.getElementById('fadeButton').addEventListener('click', function() {
-            // Fade out the button
             this.style.transition = 'opacity 1s';
             this.style.opacity = '0';
 
-            // Show the header and nav menu
             const header = document.getElementById('header');
             header.style.transition = 'opacity 1s';
-            header.style.opacity = '1';
+            header.style.opacity = '0';
 
-            // Store the state in session storage
-            sessionStorage.setItem('dareClicked', true);
-
-            // Set active button
-            setActiveButton();
+            setTimeout(() => {
+                const navMenu = document.getElementById('navMenu');
+                navMenu.style.opacity = '1';
+            }, 1000);
         });
-
-        // Ensure the active state is set when the page loads
-        function setActiveButton() {
-            const currentLocation = window.location.pathname.split("/").pop();
-            const navButtons = document.querySelectorAll('.navButton');
-            navButtons.forEach(button => {
-                if (button.getAttribute('href') === currentLocation) {
-                    button.classList.add('active');
-                }
-            });
-        }
-
-        // Call setActiveButton on page load
-        window.onload = setActiveButton;
     </script>
 </body>
 </html>
+
 
