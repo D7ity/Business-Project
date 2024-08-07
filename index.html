@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hatch Those Casket's</title>
+    <title>Hatch's Caskets</title>
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
     <header id="header">
-        <h1>Hatch Those Casket's</h1>
+        <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
             <a href="index.html" class="navButton">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
@@ -39,6 +39,17 @@
                 }
             });
         });
+
+        // Ensure the active state is set when the page loads
+        window.onload = function() {
+            const currentLocation = window.location.pathname.split("/").pop();
+            const navButtons = document.querySelectorAll('.navButton');
+            navButtons.forEach(button => {
+                if (button.getAttribute('href') === currentLocation) {
+                    button.classList.add('active');
+                }
+            });
+        };
     </script>
 </body>
 </html>
