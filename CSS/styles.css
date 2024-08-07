@@ -20,17 +20,21 @@ header {
     transition: opacity 1s;
     position: absolute;
     top: 50px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 h1 {
     margin: 0;
     color: #ff5964;
     font-size: 1.5rem;
+    flex: 1; /* Allow the title to take up space and align properly */
 }
 
 nav {
     display: flex;
     gap: 20px;
+    flex: 1; /* Ensure nav takes space as well */
+    justify-content: flex-end; /* Align nav buttons to the right */
 }
 
 .navButton {
@@ -54,19 +58,20 @@ nav {
 .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -15px;
+    bottom: -20px; /* Raised dot by 20px */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
     color: #ff5964;
 }
 
-/* Specific style for the "Support" button */
-.navButton:last-child {
-    border: 2px solid #ff5964;
-    border-radius: 5px;
-    padding: 8px 16px;
-    background: none;
+.supportButton {
+    border: 2px solid #ff5964; /* Border for Support button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.supportButton.active {
+    border: 2px solid #ff5964; /* Border for active state of Support button */
 }
 
 button {
@@ -84,4 +89,29 @@ button {
 button:hover {
     opacity: 0.8;
     transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack title and nav vertically */
+        align-items: center;
+        padding: 20px;
+        position: static; /* Remove absolute positioning */
+        top: auto; /* Remove top positioning */
+    }
+
+    nav {
+        flex-direction: column; /* Stack nav items vertically */
+        gap: 10px;
+        align-items: center;
+    }
+
+    .navButton {
+        font-size: 18px;
+    }
+
+    .navButton.active::after {
+        bottom: -30px; /* Adjust dot position for mobile view */
+    }
 }
