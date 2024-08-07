@@ -63,7 +63,7 @@ nav {
 
 /* For the "Support" button, drop the dot by another 10px */
 .navButton.active:last-child::after {
-    bottom: -25px; /* Additional 10px drop */
+    bottom: -35px; /* Additional 10px drop */
 }
 
 /* Specific style for the "Support" button */
