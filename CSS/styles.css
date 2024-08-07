@@ -61,6 +61,14 @@ nav {
     color: #ff5964;
 }
 
+/* Specific style for the "Support" button */
+.navButton:last-child {
+    border: 2px solid #ff5964; /* Add a border */
+    border-radius: 5px; /* 5px radius for rounded corners */
+    padding: 8px 16px; /* Adjust padding to fit the border */
+    background: none; /* No fill */
+}
+
 button {
     font-size: 40px; /* Initial font size */
     color: #ff5964; /* Font color */
