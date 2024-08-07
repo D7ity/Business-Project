@@ -51,6 +51,8 @@
             navButtons.forEach(button => {
                 if (button.getAttribute('href') === currentLocation) {
                     button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
                 }
             });
         }
@@ -60,4 +62,3 @@
     </script>
 </body>
 </html>
-
