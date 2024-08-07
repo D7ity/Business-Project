@@ -110,3 +110,25 @@ button:hover {
         bottom: -50px; /* Adjust dot position for mobile view */
     }
 }
+
+.navButton.active::after {
+    content: '•';
+    position: absolute;
+    bottom: -50px; /* Drop dot by 50px to align with support button */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #ff5964;
+}
+
+.navButton.active.supportButton::after {
+    bottom: -60px; /* Adjust dot position for support button */
+}
+
+.supportButton {
+    border: 2px solid #ff5964; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding to match other buttons */
+    background: none; /* No fill */
+}
+
