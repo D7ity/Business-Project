@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Hatch's Caskets</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <header id="header">
+        <h1>Hatch's Caskets</h1>
+        <nav id="navMenu">
+            <a href="index.html" class="navButton">Main</a>
+            <a href="aboutus.html" class="navButton">About Us</a>
+            <a href="pricing.html" class="navButton">Pricing</a>
+            <a href="support.html" class="navButton">Support</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Pricing</h2>
+        <p>Check out our pricing details...</p>
+    </main>
+
+    <script>
+        window.onload = function() {
+            const currentLocation = window.location.pathname.split("/").pop();
+            const navButtons = document.querySelectorAll('.navButton');
+            navButtons.forEach(button => {
+                if (button.getAttribute('href') === currentLocation) {
+                    button.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+</html>
 
