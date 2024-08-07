@@ -13,7 +13,7 @@
             <a href="index.html" class="navButton">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
-            <a href="support.html" class="navButton supportButton">Support</a>
+            <a href="support.html" class="navButton">Support</a>
         </nav>
     </header>
     
@@ -51,8 +51,6 @@
             navButtons.forEach(button => {
                 if (button.getAttribute('href') === currentLocation) {
                     button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
                 }
             });
         }
