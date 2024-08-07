@@ -110,19 +110,19 @@ button:hover {
         bottom: -50px; /* Adjust dot position for mobile view */
     }
 }
-
+/* Adjust the dot position for all active buttons */
 .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -50px; /* Drop dot by 50px to align with support button */
+    bottom: -30px; /* Raise dot by 20px from original -50px to -30px */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
     color: #ff5964;
 }
 
-.navButton.active.supportButton::after {
-    bottom: -60px; /* Adjust dot position for support button */
+.navButton.supportButton.active::after {
+    bottom: -40px; /* Further adjustment for support button */
 }
 
 .supportButton {
@@ -130,5 +130,12 @@ button:hover {
     border-radius: 5px; /* Rounded corners */
     padding: 10px; /* Padding to match other buttons */
     background: none; /* No fill */
+    box-sizing: border-box; /* Ensure border is included in element's size */
 }
 
+/* Ensure the active border is shown on all tabs */
+.navButton.active {
+    border: 2px solid #ff5964; /* Add border color to all active buttons */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure border is included in element's size */
+}
