@@ -30,24 +30,35 @@ h1 {
 
 nav {
     display: flex;
-    gap: 10px; /* Space between buttons */
+    gap: 20px; /* Space between buttons */
 }
 
-nav button {
-    font-size: 20px; /* Font size for navigation buttons */
+.navButton {
+    font-size: 20px;
     color: #ff5964;
     font-weight: bold;
     background: none;
     border: none;
     cursor: pointer;
-    transition: opacity 1s, transform 0.3s;
-    outline: none;
     text-transform: uppercase;
+    position: relative;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
 }
 
-nav button:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
+.navButton:hover {
+    color: #ffcccb;
+}
+
+.navButton.active::after {
+    content: '•';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #ff5964;
 }
 
 button {
