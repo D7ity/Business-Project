@@ -13,7 +13,7 @@
             <a href="index.html" class="navButton">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
-            <a href="support.html" class="navButton active">Support</a>
+            <a href="support.html" class="navButton supportButton active">Support</a>
         </nav>
     </header>
     
@@ -23,6 +23,13 @@
     </main>
 
     <script>
+        // Check if the user has already clicked the fade button
+        if (sessionStorage.getItem('dareClicked')) {
+            document.getElementById('header').style.opacity = '1';
+        } else {
+            document.getElementById('header').style.opacity = '0';
+        }
+
         // Active button set without opacity changes
         window.onload = function() {
             const currentLocation = window.location.pathname.split("/").pop();
@@ -36,4 +43,3 @@
     </script>
 </body>
 </html>
-
