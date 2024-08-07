@@ -20,42 +20,43 @@
     <button id="fadeButton">Dare to Open Your Own Casket?</button>
 
     <script>
-        // Check if the user has already clicked the fade button
-        if (sessionStorage.getItem('dareClicked')) {
-            document.getElementById('fadeButton').style.display = 'none';
-            document.getElementById('header').style.opacity = '1';
-            setActiveButton();
-        }
-
-        document.getElementById('fadeButton').addEventListener('click', function() {
-            // Fade out the button
-            this.style.transition = 'opacity 1s';
-            this.style.opacity = '0';
-
-            // Show the header and nav menu
-            const header = document.getElementById('header');
-            header.style.transition = 'opacity 1s';
-            header.style.opacity = '1';
-
-            // Store the state in session storage
-            sessionStorage.setItem('dareClicked', true);
-
-            // Set active button
-            setActiveButton();
-        });
-
-        // Ensure the active state is set when the page loads
+        // Function to set the active button class
         function setActiveButton() {
             const currentLocation = window.location.pathname.split("/").pop();
             const navButtons = document.querySelectorAll('.navButton');
             navButtons.forEach(button => {
+                button.classList.remove('active');
                 if (button.getAttribute('href') === currentLocation) {
                     button.classList.add('active');
                 }
             });
         }
 
-        // Call setActiveButton on page load
+        // Check if the user has already clicked the fade button
+        if (sessionStorage.getItem('dareClicked')) {
+            document.getElementById('fadeButton').style.display = 'none';
+            document.getElementById('header').style.opacity = '1';
+            setActiveButton();
+        } else {
+            document.getElementById('fadeButton').addEventListener('click', function() {
+                // Fade out the button
+                this.style.transition = 'opacity 1s';
+                this.style.opacity = '0';
+
+                // Show the header and nav menu
+                const header = document.getElementById('header');
+                header.style.transition = 'opacity 1s';
+                header.style.opacity = '1';
+
+                // Store the state in session storage
+                sessionStorage.setItem('dareClicked', true);
+
+                // Set active button
+                setActiveButton();
+            });
+        }
+
+        // Ensure the active state is set when the page loads
         window.onload = setActiveButton;
     </script>
 </body>
