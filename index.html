@@ -8,12 +8,12 @@
 </head>
 <body>
     <header id="header">
-        <h1>Title</h1>
+        <h1>Hatch Those Casket's</h1>
         <nav id="navMenu">
-            <button>Button 1</button>
-            <button>Button 2</button>
-            <button>Button 3</button>
-            <button>Button 4</button>
+            <a href="index.html" class="navButton">Main</a>
+            <a href="aboutus.html" class="navButton">About Us</a>
+            <a href="pricing.html" class="navButton">Pricing</a>
+            <a href="support.html" class="navButton">Support</a>
         </nav>
     </header>
     
@@ -29,6 +29,15 @@
             const header = document.getElementById('header');
             header.style.transition = 'opacity 1s';
             header.style.opacity = '1';
+
+            // Add active class to the current page link
+            const currentLocation = window.location.pathname;
+            const navButtons = document.querySelectorAll('.navButton');
+            navButtons.forEach(button => {
+                if (button.getAttribute('href').includes(currentLocation)) {
+                    button.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
