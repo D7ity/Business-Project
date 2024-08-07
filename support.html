@@ -13,7 +13,7 @@
             <a href="index.html" class="navButton">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
-            <a href="support.html" class="navButton">Support</a>
+            <a href="support.html" class="navButton active">Support</a>
         </nav>
     </header>
     
@@ -23,6 +23,7 @@
     </main>
 
     <script>
+        // Active button set without opacity changes
         window.onload = function() {
             const currentLocation = window.location.pathname.split("/").pop();
             const navButtons = document.querySelectorAll('.navButton');
