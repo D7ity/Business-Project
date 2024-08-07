@@ -58,7 +58,7 @@ nav {
 .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -10px; /* Dot position 10px below the button */
+    bottom: -20px; /* Raised dot by 20px */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
@@ -72,16 +72,6 @@ nav {
 
 .supportButton.active {
     border: 2px solid #ff5964; /* Border for active state of Support button */
-}
-
-.supportButton::after {
-    content: '•';
-    position: absolute;
-    bottom: -30px; /* Dot position 30px below the button for Support */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    color: #ff5964;
 }
 
 button {
@@ -122,10 +112,6 @@ button:hover {
     }
 
     .navButton.active::after {
-        bottom: -10px; /* Adjust dot position for mobile view */
-    }
-
-    .supportButton::after {
         bottom: -30px; /* Adjust dot position for mobile view */
     }
 }
