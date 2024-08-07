@@ -18,8 +18,8 @@ header {
     box-sizing: border-box;
     opacity: 0; /* Start hidden */
     transition: opacity 1s;
-    position: absolute; /* Positioning header at the top */
-    top: 0;
+    position: absolute; /* Positioning header */
+    top: 50px; /* Move down by 50px */
 }
 
 h1 {
