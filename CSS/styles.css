@@ -16,7 +16,7 @@ header {
     max-width: 1200px;
     padding: 0 100px;
     box-sizing: border-box;
-    opacity: 1; /* Ensure header is visible */
+    opacity: 0; /* Start hidden */
     transition: opacity 1s;
     position: absolute;
     top: 50px;
@@ -54,16 +54,11 @@ nav {
 .navButton.active::after {
     content: '•';
     position: absolute;
-    bottom: -15px; /* Lower the dot by 10px */
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
     color: #ff5964;
-}
-
-/* For the "Support" button, drop the dot by another 10px */
-.navButton.active:last-child::after {
-    bottom: -30px; /* Additional 10px drop */
 }
 
 /* Specific style for the "Support" button */
