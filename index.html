@@ -25,16 +25,10 @@
             this.style.transition = 'opacity 1s';
             this.style.opacity = '0';
 
-            // Fade out the header
+            // Fade in the header and nav menu
             const header = document.getElementById('header');
             header.style.transition = 'opacity 1s';
-            header.style.opacity = '0';
-
-            // Wait for the header to fade out and then display the nav menu
-            setTimeout(() => {
-                const navMenu = document.getElementById('navMenu');
-                navMenu.style.opacity = '1';
-            }, 1000); // Delay must match the fade-out duration
+            header.style.opacity = '1';
         });
     </script>
 </body>
