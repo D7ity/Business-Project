@@ -107,7 +107,6 @@ button:hover {
     height: auto;
 }
 
-/* Placeholder text styles */
 .placeholder-text p {
     color: #ffffff; /* White text color */
     font-size: 1.2rem;
@@ -123,21 +122,22 @@ button:hover {
 /* Center content container with some padding */
 .content-container {
     display: flex;
-    justify-content: space-between; /* Space between image and text */
+    justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     gap: 50px; /* Space between image and text */
     padding: 0 50px; /* Padding to prevent touching borders */
-    position: absolute;
-    top: calc(50px + (50vh - 50px) / 2); /* Center between header and bottom border */
-    transform: translateY(-50%); /* Adjust for vertical centering */
 }
 
 /* Ensure image doesn't touch the left border */
 .image-container {
     flex: 1; /* Allow flexible width */
     display: flex;
-    justify-content: flex-start; /* Align image to the left of its container */
-    padding-right: 20px; /* Adjust padding as needed */
+    justify-content: flex-end; /* Align image to the right of its container */
+}
+
+.placeholder-image {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Ensure text doesn't touch the right border */
@@ -145,5 +145,11 @@ button:hover {
     flex: 1; /* Allow flexible width */
     display: flex;
     justify-content: flex-start; /* Align text to the left of its container */
-    padding-left: 20px; /* Adjust padding as needed */
+}
+
+.placeholder-text p {
+    color: #ffffff; /* White text color */
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
 }
