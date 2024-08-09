@@ -13,7 +13,7 @@
             <a href="index.html" class="navButton">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
-            <a href="support.html" class="navButton supportButton active">Support</a>
+            <a href="support.html" class="navButton active">Support</a>
         </nav>
     </header>
     
@@ -21,25 +21,18 @@
         <h2>Support</h2>
         <p>Find out how we can assist you...</p>
     </main>
+
     <script>
-    // Check if the user has already clicked the fade button
-    if (sessionStorage.getItem('dareClicked')) {
-        document.getElementById('header').style.opacity = '1';
-    } else {
-        document.getElementById('header').style.opacity = '0';
-    }
-
-    // Active button set without opacity changes
-    window.onload = function() {
-        const currentLocation = window.location.pathname.split("/").pop();
-        const navButtons = document.querySelectorAll('.navButton');
-        navButtons.forEach(button => {
-            if (button.getAttribute('href') === currentLocation) {
-                button.classList.add('active');
-            }
-        });
-    };
-</script>
-
+        // Active button set without opacity changes
+        window.onload = function() {
+            const currentLocation = window.location.pathname.split("/").pop();
+            const navButtons = document.querySelectorAll('.navButton');
+            navButtons.forEach(button => {
+                if (button.getAttribute('href') === currentLocation) {
+                    button.classList.add('active');
+                }
+            });
+        };
+    </script>
 </body>
 </html>
