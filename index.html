@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - Hatch's Caskets</title>
+    <title>Main - Hatch's Caskets</title>
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
@@ -17,15 +17,18 @@
         </nav>
     </header>
     
-    <main>
-        <button id="dareButton">Dare to Open Your Own Casket?</button>
+    <main id="mainContent" style="opacity: 1; transition: opacity 1s;">
+        <button id="dareButton" style="display: none;">Dare to Open Your Own Casket?</button>
     </main>
 
     <script>
         // Check if the user has already clicked the "Dare to Enter" button
         if (sessionStorage.getItem('dareClicked')) {
-            // Fade in the header if "Dare to Enter" was clicked
+            // Show the navigation bar immediately if the button was clicked before
             document.getElementById('header').style.opacity = '1';
+        } else {
+            // Show the "Dare to Open Your Own Casket?" button if not clicked before
+            document.getElementById('dareButton').style.display = 'block';
         }
 
         // Handle "Dare to Enter" button click
@@ -33,13 +36,14 @@
             // Set session storage item to indicate the button was clicked
             sessionStorage.setItem('dareClicked', 'true');
             
-            // Fade out the main content
-            document.querySelector('main').style.opacity = '0';
-            
-            // Fade in the header after a delay
+            // Fade out the main content (button)
+            document.getElementById('mainContent').style.opacity = '0';
+
+            // Fade in the header after the main content has faded out
             setTimeout(() => {
                 document.getElementById('header').style.opacity = '1';
-            }, 1000); // Adjust the delay as needed
+                document.getElementById('dareButton').style.display = 'none'; // Hide the button after fade out
+            }, 1000); // Adjust the delay to match the transition duration
         });
 
         // Active button set without opacity changes
