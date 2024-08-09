@@ -119,20 +119,38 @@ button:hover {
     margin-top: 20px; /* Adjust as needed to position the image below the title */
 }
 
-/* Flex container to align image and text side by side */
+/* Center content container with some padding */
 .content-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px; /* Adjust margin as needed */
-    gap: 20px; /* Adjust spacing between image and text */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 50px; /* Space between image and text */
+    padding: 0 50px; /* Padding to prevent touching borders */
 }
 
-.image-container,
-.placeholder-text {
-    flex: 1;
+/* Ensure image doesn't touch the left border */
+.image-container {
+    flex: 1; /* Allow flexible width */
+    display: flex;
+    justify-content: flex-end; /* Align image to the right of its container */
 }
 
-.placeholder-text {
-    text-align: left; /* Align text to the left */
+.placeholder-image {
+    max-width: 100%;
+    height: auto;
 }
+
+/* Ensure text doesn't touch the right border */
+.placeholder-text {
+    flex: 1; /* Allow flexible width */
+    display: flex;
+    justify-content: flex-start; /* Align text to the left of its container */
+}
+
+.placeholder-text p {
+    color: #ffffff; /* White text color */
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+}
+
