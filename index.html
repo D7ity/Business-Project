@@ -19,13 +19,17 @@
     </header>
     
     <main id="mainContent" style="opacity: 1; transition: opacity 1s;">
-        <button id="dareButton">Dare to Open Your Own Casket?</button>
+        <div id="dareSection" style="display: none;">
+            <button id="dareButton">Dare to Open Your Own Casket?</button>
+        </div>
         <div id="additionalContent" style="display: none;">
-            <div class="image-container centered-x">
-                <img src="https://via.placeholder.com/400x200" alt="Placeholder Image" class="placeholder-image">
-            </div>
-            <div class="centered-x placeholder-text">
-                <p>Placeholder text between About Us and Pricing</p>
+            <div class="content-container">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/400x200" alt="Placeholder Image" class="placeholder-image">
+                </div>
+                <div class="placeholder-text">
+                    <p>Placeholder text between About Us and Pricing</p>
+                </div>
             </div>
         </div>
     </main>
@@ -33,9 +37,12 @@
     <script>
         // Check if the user has already clicked the "Dare to Enter" button
         if (sessionStorage.getItem('dareClicked')) {
-            // Fade in the header if "Dare to Enter" was clicked
+            // Fade in the header and show the additional content
             document.getElementById('header').style.opacity = '1';
-            document.getElementById('additionalContent').style.display = 'block';
+            document.getElementById('additionalContent').style.display = 'flex';
+        } else {
+            // Show the "Dare to Open Your Own Casket?" button if it hasn't been clicked
+            document.getElementById('dareSection').style.display = 'block';
         }
 
         // Handle "Dare to Enter" button click
@@ -50,8 +57,8 @@
             setTimeout(() => {
                 document.getElementById('header').style.opacity = '1';
                 document.getElementById('mainContent').style.opacity = '1';
-                document.getElementById('additionalContent').style.display = 'block';
-                document.getElementById('dareButton').style.display = 'none';
+                document.getElementById('additionalContent').style.display = 'flex';
+                document.getElementById('dareSection').style.display = 'none';
             }, 1000); // Adjust the delay as needed
         });
 
