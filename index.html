@@ -3,49 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hatch's Caskets</title>
+    <title>Pricing - Hatch's Caskets</title>
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-    <header id="header">
+    <header id="header" style="opacity: 0; transition: opacity 1s;">
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
-            <a href="index.html" class="navButton">Main</a>
+            <a href="index.html" class="navButton active">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
             <a href="support.html" class="navButton">Support</a>
         </nav>
     </header>
     
-    <button id="fadeButton">Dare to Open Your Own Casket?</button>
+    <main>
+        <h2>Welcome to Hatch's Caskets</h2>
+        <p>Discover our unique offerings...</p>
+        <button id="dareButton">Dare to Enter</button>
+    </main>
 
     <script>
-        // Check if the user has already clicked the fade button
+        // Check if the user has already clicked the "Dare to Enter" button
         if (sessionStorage.getItem('dareClicked')) {
-            document.getElementById('fadeButton').style.display = 'none';
+            // Fade in the header if "Dare to Enter" was clicked
             document.getElementById('header').style.opacity = '1';
-            setActiveButton();
         }
 
-        document.getElementById('fadeButton').addEventListener('click', function() {
-            // Fade out the button
-            this.style.transition = 'opacity 1s';
-            this.style.opacity = '0';
-
-            // Show the header and nav menu
-            const header = document.getElementById('header');
-            header.style.transition = 'opacity 1s';
-            header.style.opacity = '1';
-
-            // Store the state in session storage
-            sessionStorage.setItem('dareClicked', true);
-
-            // Set active button
-            setActiveButton();
+        // Handle "Dare to Enter" button click
+        document.getElementById('dareButton').addEventListener('click', function() {
+            // Set session storage item to indicate the button was clicked
+            sessionStorage.setItem('dareClicked', 'true');
+            
+            // Fade out the main content
+            document.querySelector('main').style.opacity = '0';
+            
+            // Fade in the header after a delay
+            setTimeout(() => {
+                document.getElementById('header').style.opacity = '1';
+            }, 1000); // Adjust the delay as needed
         });
 
-        // Ensure the active state is set when the page loads
-        function setActiveButton() {
+        // Active button set without opacity changes
+        window.onload = function() {
             const currentLocation = window.location.pathname.split("/").pop();
             const navButtons = document.querySelectorAll('.navButton');
             navButtons.forEach(button => {
@@ -53,11 +53,7 @@
                     button.classList.add('active');
                 }
             });
-        }
-
-        // Call setActiveButton on page load
-        window.onload = setActiveButton;
+        };
     </script>
 </body>
 </html>
-
