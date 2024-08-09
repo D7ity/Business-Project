@@ -25,9 +25,41 @@ header {
 h1 {
     margin: 0;
     color: #ff5964;
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Updated title size */
     font-family: 'Bebas Neue', sans-serif;
 }
+
+/* Centered horizontally (x-axis) */
+.centered-x {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
+.placeholder-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.placeholder-text p {
+    color: #ffffff; /* White text color */
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+}
+
+.image-container {
+    margin-top: 20px; /* Adjust as needed to position the image below the title */
+}
+
+nav .navButton {
+    position: relative;
+}
+
+nav .navButton:nth-child(3) {
+    margin-right: auto; /* Push the third button (Pricing) to the right */
+}
+
 
 nav {
     display: flex;
