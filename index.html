@@ -19,23 +19,23 @@
     </header>
     
     <main id="mainContent" style="opacity: 1; transition: opacity 1s;">
-        <div class="centered-content">
-            <img src="https://via.placeholder.com/400x200" alt="Placeholder Image" class="placeholder-image">
+        <button id="dareButton">Dare to Open Your Own Casket?</button>
+        <div id="additionalContent" style="display: none;">
+            <div class="image-container centered-x">
+                <img src="https://via.placeholder.com/400x200" alt="Placeholder Image" class="placeholder-image">
+            </div>
+            <div class="centered-x placeholder-text">
+                <p>Placeholder text between About Us and Pricing</p>
+            </div>
         </div>
-        <div class="centered-content placeholder-text">
-            <p>Placeholder text between About Us and Pricing</p>
-        </div>
-        <button id="dareButton" style="display: none;">Dare to Open Your Own Casket?</button>
     </main>
 
     <script>
         // Check if the user has already clicked the "Dare to Enter" button
         if (sessionStorage.getItem('dareClicked')) {
-            // Show the navigation bar immediately if the button was clicked before
+            // Fade in the header if "Dare to Enter" was clicked
             document.getElementById('header').style.opacity = '1';
-        } else {
-            // Show the "Dare to Open Your Own Casket?" button if not clicked before
-            document.getElementById('dareButton').style.display = 'block';
+            document.getElementById('additionalContent').style.display = 'block';
         }
 
         // Handle "Dare to Enter" button click
@@ -43,14 +43,16 @@
             // Set session storage item to indicate the button was clicked
             sessionStorage.setItem('dareClicked', 'true');
             
-            // Fade out the main content (button)
-            document.getElementById('mainContent').style.opacity = '0';
-
-            // Fade in the header after the main content has faded out
+            // Fade out the main content
+            document.querySelector('main').style.opacity = '0';
+            
+            // Fade in the header and additional content after a delay
             setTimeout(() => {
                 document.getElementById('header').style.opacity = '1';
-                document.getElementById('dareButton').style.display = 'none'; // Hide the button after fade out
-            }, 1000); // Adjust the delay to match the transition duration
+                document.getElementById('mainContent').style.opacity = '1';
+                document.getElementById('additionalContent').style.display = 'block';
+                document.getElementById('dareButton').style.display = 'none';
+            }, 1000); // Adjust the delay as needed
         });
 
         // Active button set without opacity changes
