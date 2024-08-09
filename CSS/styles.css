@@ -1,3 +1,4 @@
+/* Ensure body layout */
 body {
     margin: 0;
     height: 100vh;
@@ -8,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Header styling */
 header {
     display: flex;
     justify-content: space-between;
@@ -107,6 +109,7 @@ button:hover {
     height: auto;
 }
 
+/* Placeholder text styles */
 .placeholder-text p {
     color: #ffffff; /* White text color */
     font-size: 1.2rem;
@@ -117,40 +120,27 @@ button:hover {
 /* Image container styles */
 .image-container {
     margin-top: 20px; /* Adjust as needed to position the image below the title */
+    padding-right: 50px; /* Add padding to the right for equal distance */
 }
 
-/* Center content container with some padding */
+/* Center content container with equal spacing */
 .content-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: space-between; /* Space between image and text */
     align-items: center; /* Center vertically */
-    gap: 50px; /* Space between image and text */
-    padding: 0 50px; /* Padding to prevent touching borders */
+    width: 80%; /* Ensure content container has some padding from borders */
+    margin: 0 auto; /* Center the content container */
 }
 
-/* Ensure image doesn't touch the left border */
+/* Ensure image and text containers are centered */
 .image-container {
     flex: 1; /* Allow flexible width */
     display: flex;
     justify-content: flex-end; /* Align image to the right of its container */
 }
 
-.placeholder-image {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Ensure text doesn't touch the right border */
 .placeholder-text {
     flex: 1; /* Allow flexible width */
     display: flex;
     justify-content: flex-start; /* Align text to the left of its container */
 }
-
-.placeholder-text p {
-    color: #ffffff; /* White text color */
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 0;
-}
-
