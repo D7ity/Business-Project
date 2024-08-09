@@ -29,38 +29,7 @@ h1 {
     font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Centered horizontally (x-axis) */
-.centered-x {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0; /* Add some margin for spacing */
-}
-
-.placeholder-image {
-    max-width: 100%;
-    height: auto;
-}
-
-.placeholder-text p {
-    color: #ffffff; /* White text color */
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 0;
-}
-
-.image-container {
-    margin-top: 20px; /* Adjust as needed to position the image below the title */
-}
-
-nav .navButton {
-    position: relative;
-}
-
-nav .navButton:nth-child(3) {
-    margin-right: auto; /* Push the third button (Pricing) to the right */
-}
-
-
+/* Navigation styles */
 nav {
     display: flex;
     gap: 20px;
@@ -107,6 +76,7 @@ nav {
     background: none;
 }
 
+/* Button styles */
 button {
     font-size: 40px;
     color: #ff5964;
@@ -122,4 +92,47 @@ button {
 button:hover {
     opacity: 0.8;
     transform: scale(1.1);
+}
+
+/* Centered horizontally (x-axis) */
+.centered-x {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
+/* Placeholder image styles */
+.placeholder-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.placeholder-text p {
+    color: #ffffff; /* White text color */
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Image container styles */
+.image-container {
+    margin-top: 20px; /* Adjust as needed to position the image below the title */
+}
+
+/* Flex container to align image and text side by side */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* Adjust margin as needed */
+    gap: 20px; /* Adjust spacing between image and text */
+}
+
+.image-container,
+.placeholder-text {
+    flex: 1;
+}
+
+.placeholder-text {
+    text-align: left; /* Align text to the left */
 }
