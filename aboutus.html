@@ -23,24 +23,16 @@
     </main>
 
     <script>
-    // Check if the user has already clicked the fade button
-    if (sessionStorage.getItem('dareClicked')) {
-        document.getElementById('header').style.opacity = '1';
-    } else {
-        document.getElementById('header').style.opacity = '0';
-    }
-
-    // Active button set without opacity changes
-    window.onload = function() {
-        const currentLocation = window.location.pathname.split("/").pop();
-        const navButtons = document.querySelectorAll('.navButton');
-        navButtons.forEach(button => {
-            if (button.getAttribute('href') === currentLocation) {
-                button.classList.add('active');
-            }
-        });
-    };
-</script>
-
+        // Active button set without opacity changes
+        window.onload = function() {
+            const currentLocation = window.location.pathname.split("/").pop();
+            const navButtons = document.querySelectorAll('.navButton');
+            navButtons.forEach(button => {
+                if (button.getAttribute('href') === currentLocation) {
+                    button.classList.add('active');
+                }
+            });
+        };
+    </script>
 </body>
 </html>
