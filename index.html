@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-    <header id="header" style="opacity: 0; transition: opacity 1s;">
+    <header id="header">
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
             <a href="index.html" class="navButton active">Main</a>
@@ -18,11 +18,8 @@
         </nav>
     </header>
     
-    <main id="mainContent" style="opacity: 1; transition: opacity 1s;">
-        <div id="dareSection" style="display: none;">
-            <button id="dareButton">Dare to Open Your Own Casket?</button>
-        </div>
-        <div id="additionalContent" style="display: none;">
+    <main id="mainContent">
+        <div id="additionalContent">
             <div class="content-container">
                 <div class="image-container">
                     <img src="https://via.placeholder.com/500x500" alt="Placeholder Image" class="placeholder-image">
@@ -35,35 +32,11 @@
     </main>
 
     <script>
-        // Check if the user has already clicked the "Dare to Enter" button
-        if (sessionStorage.getItem('dareClicked')) {
-            // Fade in the header and show the additional content
-            document.getElementById('header').style.opacity = '1';
-            document.getElementById('additionalContent').style.display = 'flex';
-        } else {
-            // Show the "Dare to Open Your Own Casket?" button if it hasn't been clicked
-            document.getElementById('dareSection').style.display = 'block';
-        }
-
-        // Handle "Dare to Enter" button click
-        document.getElementById('dareButton').addEventListener('click', function() {
-            // Set session storage item to indicate the button was clicked
-            sessionStorage.setItem('dareClicked', 'true');
-            
-            // Fade out the main content
-            document.querySelector('main').style.opacity = '0';
-            
-            // Fade in the header and additional content after a delay
-            setTimeout(() => {
-                document.getElementById('header').style.opacity = '1';
-                document.getElementById('mainContent').style.opacity = '1';
-                document.getElementById('additionalContent').style.display = 'flex';
-                document.getElementById('dareSection').style.display = 'none';
-            }, 1000); // Adjust the delay as needed
-        });
-
-        // Active button set without opacity changes
+        // Ensure header is visible and additional content is displayed on load
         window.onload = function() {
+            document.getElementById('header').style.opacity = '1';
+            document.getElementById('mainContent').style.opacity = '1';
+            
             const currentLocation = window.location.pathname.split("/").pop();
             const navButtons = document.querySelectorAll('.navButton');
             navButtons.forEach(button => {
@@ -75,3 +48,4 @@
     </script>
 </body>
 </html>
+
