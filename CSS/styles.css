@@ -131,7 +131,7 @@ button:hover {
     width: 80%; /* Ensure content container has some padding from borders */
     margin: 0 auto; /* Center the content container */
     opacity: 1; /* Ensure content is visible */
-    transition: opacity 0.3s; /* Match the fade transition */
+    transition: opacity 0.3s ease-in-out; /* Animation for content switching */
 }
 
 /* Ensure image and text containers are centered */
@@ -158,14 +158,19 @@ button:hover {
 }
 
 .dot {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
+    background: #ff5964;
     border-radius: 50%;
-    background-color: #ff5964;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .dot.active {
-    background-color: #ffcccb;
+    background: #ffcccb;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: #ffcccb;
 }
