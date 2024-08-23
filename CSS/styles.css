@@ -130,6 +130,8 @@ button:hover {
     align-items: center; /* Center vertically */
     width: 80%; /* Ensure content container has some padding from borders */
     margin: 0 auto; /* Center the content container */
+    opacity: 1; /* Ensure content is visible */
+    transition: opacity 0.3s; /* Match the fade transition */
 }
 
 /* Ensure image and text containers are centered */
@@ -143,4 +145,27 @@ button:hover {
     flex: 1; /* Allow flexible width */
     display: flex;
     justify-content: flex-start; /* Align text to the left of its container */
+}
+
+/* Dots styling */
+.dots {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ff5964;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #ffcccb;
 }
