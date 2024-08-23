@@ -45,6 +45,33 @@
                 }
             });
         };
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainContent = document.getElementById('mainContent');
+            // Create a new section to be revealed when scrolling
+            const extraSection = document.createElement('div');
+            extraSection.style.height = '0px'; // Initially collapsed
+            extraSection.style.overflow = 'hidden'; // Hide overflow content
+            extraSection.style.transition = 'height 1s ease-in-out';
+            extraSection.innerHTML = `
+            <div style="padding: 50px; background-color: rgba(255, 89, 100, 0.2);">
+            <h2 style="text-align: center; color: #ff5964;">Additional Content</h2>
+            <p style="color: white;">This is the extra content that appears when you scroll down. You can customize it further as per your requirements.</p>
+            </div>
+            `;
+
+            mainContent.appendChild(extraSection);
+
+            // Listen for scroll events
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY + window.innerHeight;
+                const documentHeight = document.body.scrollHeight;
+        
+                // Trigger the expansion when near the bottom of the page
+                if (scrollPosition >= documentHeight - 100) {
+                    extraSection.style.height = '300px'; // Adjust the height to reveal the content
+                }
+            });
+        });
     </script>
 </body>
 </html>
