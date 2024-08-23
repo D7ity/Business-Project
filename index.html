@@ -6,18 +6,6 @@
     <title>Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
-    <style>
-        /* Additional styles for expanding the page */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        #mainContent {
-            height: 200vh; /* Adjust this value to control the height */
-            overflow: hidden;
-        }
-    </style>
 </head>
 <body>
     <header id="header">
@@ -43,21 +31,61 @@
         </div>
     </main>
 
+    <!-- Dots for content switching -->
+    <div class="dots">
+        <div class="dot" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+    </div>
+
     <script>
-        // Ensure header is visible and additional content is displayed on load
-        window.onload = function() {
-            document.getElementById('header').style.opacity = '1';
-            document.getElementById('mainContent').style.opacity = '1';
-            
-            const currentLocation = window.location.pathname.split("/").pop();
-            const navButtons = document.querySelectorAll('.navButton');
-            navButtons.forEach(button => {
-                if (button.getAttribute('href') === currentLocation) {
-                    button.classList.add('active');
-                }
+        // JavaScript for content switching
+        document.addEventListener('DOMContentLoaded', () => {
+            const dots = document.querySelectorAll('.dot');
+            const contentContainer = document.querySelector('.content-container');
+            const contentSections = [
+                `<div class="image-container">
+                    <img src="https://via.placeholder.com/500x500" alt="Placeholder Image" class="placeholder-image">
+                </div>
+                <div class="placeholder-text">
+                    <p>Content Section 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>`,
+                `<div class="image-container">
+                    <img src="https://via.placeholder.com/500x500/ffcccb" alt="Placeholder Image" class="placeholder-image">
+                </div>
+                <div class="placeholder-text">
+                    <p>Content Section 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>`,
+                `<div class="image-container">
+                    <img src="https://via.placeholder.com/500x500/cccccc" alt="Placeholder Image" class="placeholder-image">
+                </div>
+                <div class="placeholder-text">
+                    <p>Content Section 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>`
+            ];
+
+            function switchContent(index) {
+                contentContainer.style.opacity = 0;
+                setTimeout(() => {
+                    contentContainer.innerHTML = contentSections[index];
+                    contentContainer.style.opacity = 1;
+                }, 300); // Matches the transition duration
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const index = dot.getAttribute('data-index');
+                    switchContent(index);
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                });
             });
-        };
+
+            // Set the initial active dot
+            dots[0].classList.add('active');
+        });
     </script>
 </body>
 </html>
+
 
