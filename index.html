@@ -7,16 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
     <style>
-        /* Add CSS styles for smooth height expansion */
-        #extraSection {
-            height: 0;
-            overflow: hidden;
-            transition: height 1s ease-in-out;
-            background-color: rgba(255, 89, 100, 0.2);
+        /* Additional styles for expanding the page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
-
-        #extraSection.visible {
-            height: 300px; /* Adjust height as needed */
+        #mainContent {
+            height: 200vh; /* Adjust this value to control the height */
+            overflow: hidden;
         }
     </style>
 </head>
@@ -24,7 +23,7 @@
     <header id="header">
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
-            <a href="index.html" class="navButton">Main</a>
+            <a href="index.html" class="navButton active">Main</a>
             <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
             <a href="support.html" class="navButton">Support</a>
@@ -42,15 +41,14 @@
                 </div>
             </div>
         </div>
-        <!-- Extra section will be appended here -->
     </main>
 
     <script>
-        // Ensure header and main content are visible on load
+        // Ensure header is visible and additional content is displayed on load
         window.onload = function() {
             document.getElementById('header').style.opacity = '1';
             document.getElementById('mainContent').style.opacity = '1';
-
+            
             const currentLocation = window.location.pathname.split("/").pop();
             const navButtons = document.querySelectorAll('.navButton');
             navButtons.forEach(button => {
@@ -59,33 +57,6 @@
                 }
             });
         };
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainContent = document.getElementById('mainContent');
-
-            // Create and append a new section to be revealed when scrolling
-            const extraSection = document.createElement('div');
-            extraSection.id = 'extraSection';
-            extraSection.innerHTML = `
-                <div style="padding: 50px; text-align: center;">
-                    <h2 style="color: #ff5964;">Additional Content</h2>
-                    <p>This is the extra content that appears when you scroll down. You can customize it further as per your requirements.</p>
-                </div>
-            `;
-
-            mainContent.appendChild(extraSection);
-
-            // Listen for scroll events
-            window.addEventListener('scroll', function() {
-                const scrollPosition = window.scrollY + window.innerHeight;
-                const documentHeight = document.body.scrollHeight;
-
-                // Trigger the expansion when near the bottom of the page
-                if (scrollPosition >= documentHeight - 100) {
-                    extraSection.classList.add('visible');
-                }
-            });
-        });
     </script>
 </body>
 </html>
