@@ -1,7 +1,7 @@
 /* Ensure body layout */
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@ header {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 100px;
+    padding: 0 10%;
     box-sizing: border-box;
     opacity: 1; /* Ensure header is visible */
     transition: opacity 1s;
@@ -127,27 +127,11 @@ button:hover {
 .content-container {
     display: flex;
     justify-content: space-between; /* Space between image and text */
-    align-items: center; /* Center vertically */
-    width: 80%; /* Ensure content container has some padding from borders */
-    margin: 0 auto; /* Center the content container */
-    opacity: 1; /* Ensure content is visible */
-    transition: opacity 0.3s ease-in-out; /* Animation for content switching */
+    align-items: center; /* Align items vertically centered */
+    padding: 0 50px; /* Add padding to both sides for consistent spacing */
 }
 
-/* Ensure image and text containers are centered */
-.image-container {
-    flex: 1; /* Allow flexible width */
-    display: flex;
-    justify-content: flex-end; /* Align image to the right of its container */
-}
-
-.placeholder-text {
-    flex: 1; /* Allow flexible width */
-    display: flex;
-    justify-content: flex-start; /* Align text to the left of its container */
-}
-
-/* Dots styling */
+/* Dots container and dot styling */
 .dots {
     position: fixed;
     bottom: 20px;
@@ -158,19 +142,43 @@ button:hover {
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    background: #ff5964;
+    width: 15px;
+    height: 15px;
+    background-color: #ff5964;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.dot.active {
-    background: #ffcccb;
+.dot.active, .dot:hover {
+    background-color: #ffcccb;
     transform: scale(1.2);
 }
 
-.dot:hover {
-    background: #ffcccb;
+/* Responsive Design - Adjust layout for smaller screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 2rem; /* Smaller font size on mobile */
+    }
+
+    .content-container {
+        flex-direction: column;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .image-container, .placeholder-text {
+        padding: 0;
+    }
 }
