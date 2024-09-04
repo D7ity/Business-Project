@@ -16,7 +16,7 @@ header {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 20px; /* Moved nav bar closer to the border */
+    padding: 0 20px; /* Reduced padding to move the nav bar closer to the edge */
     box-sizing: border-box;
     opacity: 1; /* Ensure header is visible */
     transition: opacity 1s;
@@ -126,59 +126,51 @@ button:hover {
 /* Center content container with equal spacing */
 .content-container {
     display: flex;
-    justify-content: space-between; /* Space between image and text */
+    justify-content: space-between; /* Space between text and image */
     align-items: center; /* Center vertically */
     width: 80%; /* Ensure content container has some padding from borders */
     margin: 0 auto; /* Center the content container */
     opacity: 1; /* Ensure content is visible */
-    transition: opacity 0.3s; /* Smooth fade for content switch */
+    transition: opacity 0.3s ease-in-out; /* Animation for content switching */
 }
 
-/* Dots for content switching */
-.dots {
+/* Ensure image and text containers are centered */
+.placeholder-text {
+    flex: 1; /* Allow flexible width */
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    position: absolute;
-    bottom: 50px;
+    justify-content: flex-end; /* Align text to the right of its container */
+}
+
+.image-container {
+    flex: 1; /* Allow flexible width */
+    display: flex;
+    justify-content: flex-start; /* Align image to the left of its container */
+}
+
+/* Dots styling */
+.dots {
+    position: fixed;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
 }
 
 .dot {
     width: 12px;
     height: 12px;
-    background-color: #ffffff;
+    background: #ff5964;
     border-radius: 50%;
-    margin: 0 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .dot.active {
-    background-color: #ff5964;
+    background: #ffcccb;
+    transform: scale(1.2);
 }
 
-/* Button container styles */
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 5px; /* 5-pixel gap between buttons */
-    margin-top: 20px;
+.dot:hover {
+    background: #ffcccb;
 }
-
-/* Action button styles */
-.action-button {
-    padding: 10px 20px;
-    background-color: #ff5964;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.action-button:hover {
-    background-color: #ffcccb;
-}
-
