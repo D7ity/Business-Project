@@ -176,13 +176,19 @@ button:hover {
     color: #ffffff; /* White text */
     font-size: 2.5rem; /* Bigger text for the heading */
     text-align: center;
-    margin: 0; /* Remove default margin */
-    padding-bottom: 10px; /* Space between heading and paragraph */
+    margin-bottom: 10px; /* Spacing between heading and paragraph */
 }
 
-/* Add margin to move the heading up */
+.placeholder-text p {
+    color: #ffffff;
+    font-size: 1.2rem; /* Text size for the paragraph */
+    text-align: center;
+    margin: 0;
+}
+
+/* Add some margin to the placeholder text */
 .placeholder-text {
-    margin-top: -110px; /* Adjust the value as needed to raise the heading */
+    margin-top: -110px; /* Adjust the value to raise or lower the heading */
 }
 
 
