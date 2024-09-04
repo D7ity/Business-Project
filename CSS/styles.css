@@ -16,7 +16,7 @@ header {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 100px;
+    padding: 0 20px; /* Reduced padding to move the nav bar closer to the edge */
     box-sizing: border-box;
     opacity: 1; /* Ensure header is visible */
     transition: opacity 1s;
@@ -120,13 +120,13 @@ button:hover {
 /* Image container styles */
 .image-container {
     margin-top: 20px; /* Adjust as needed to position the image below the title */
-    padding-right: 50px; /* Add padding to the right for equal distance */
+    padding-left: 50px; /* Add padding to the left for equal distance */
 }
 
 /* Center content container with equal spacing */
 .content-container {
     display: flex;
-    justify-content: space-between; /* Space between image and text */
+    justify-content: space-between; /* Space between text and image */
     align-items: center; /* Center vertically */
     width: 80%; /* Ensure content container has some padding from borders */
     margin: 0 auto; /* Center the content container */
@@ -135,16 +135,16 @@ button:hover {
 }
 
 /* Ensure image and text containers are centered */
-.image-container {
-    flex: 1; /* Allow flexible width */
-    display: flex;
-    justify-content: flex-end; /* Align image to the right of its container */
-}
-
 .placeholder-text {
     flex: 1; /* Allow flexible width */
     display: flex;
-    justify-content: flex-start; /* Align text to the left of its container */
+    justify-content: flex-end; /* Align text to the right of its container */
+}
+
+.image-container {
+    flex: 1; /* Allow flexible width */
+    display: flex;
+    justify-content: flex-start; /* Align image to the left of its container */
 }
 
 /* Dots styling */
