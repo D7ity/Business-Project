@@ -171,11 +171,10 @@ button:hover {
     transform: scale(1.2);
 }
 
+
 .dot:hover {
     background: #ffcccb;
 }
-
-
 /* Updated placeholder text styles */
 .placeholder-text h2 {
     color: #ffffff; /* White text */
@@ -185,21 +184,7 @@ button:hover {
     padding-bottom: 10px; /* Space between heading and paragraph */
 }
 
-/* Add styling for the additional placeholder text */
-.additional-text {
-    color: #ffffff; /* White text color */
-    font-size: 1.2rem; /* Slightly smaller text size */
-    text-align: center;
-    margin-top: 10px; /* Space above the additional text */
-}
-
-/* Adjust the content container to ensure no overlap */
-.content-container {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center items horizontally */
-    width: 80%; /* Ensure content container has some padding from borders */
-    margin: 0 auto; /* Center the content container */
-    opacity: 1; /* Ensure content is visible */
-    transition: opacity 0.3s ease-in-out; /* Animation for content switching */
+/* Add margin to move the heading up */
+.placeholder-text {
+    margin-top: -110px; /* Adjust the value as needed to raise the heading */
 }
