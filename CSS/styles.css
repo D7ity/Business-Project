@@ -188,3 +188,31 @@ button:hover {
 .placeholder-text {
     margin-top: -110px; /* Adjust the value as needed to raise the heading */
 }
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    justify-content: center; /* Center buttons horizontally */
+    margin-top: 20px; /* Space between text and buttons */
+}
+
+/* Button styles */
+.action-button {
+    font-size: 1rem; /* Font size for buttons */
+    color: #ffffff; /* White text color */
+    background-color: #ff5964; /* Button background color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.action-button:hover {
+    background-color: #ffcccb; /* Button hover color */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+
+
