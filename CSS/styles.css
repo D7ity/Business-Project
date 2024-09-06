@@ -103,12 +103,11 @@ button:hover {
     margin: 20px 0; /* Add some margin for spacing */
 }
 
-/* Placeholder image styles */
 .placeholder-image {
     max-width: 100%;
     height: auto;
+    max-height: 400px; /* Limit image height if needed */
 }
-
 
 /* Image container styles */
 .image-container {
@@ -119,18 +118,24 @@ button:hover {
 /* Center content container with equal spacing */
 .content-container {
     display: flex;
-    justify-content: space-between; /* Space between text and image */
+    justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    width: 80%; /* Ensure content container has some padding from borders */
+    width: 80%; /* Adjust as needed */
+    max-width: 1200px; /* Limit maximum width */
     margin: 0 auto; /* Center the content container */
     opacity: 1; /* Ensure content is visible */
     transition: opacity 0.3s ease-in-out; /* Animation for content switching */
+    padding: 20px; /* Add some padding if needed */
+    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
 }
 
+
+/* Image container styles */
 .image-container {
     flex: 1; /* Allow flexible width */
     display: flex;
-    justify-content: flex-start; /* Align image to the left of its container */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
 }
 
 /* Dots styling */
@@ -162,25 +167,29 @@ button:hover {
     background: #ffcccb;
 }
 
-/* Ensure the text stacks vertically */
+/* Ensure placeholder text and image are properly sized */
 .placeholder-text {
-    display: block; /* Ensure text stacks vertically */
-    text-align: center; /* Center text alignment */
+    flex: 1; /* Allow flexible width */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center; /* Center text vertically */
+    align-items: flex-start; /* Align text to the left of its container */
+    max-width: 60%; /* Adjust to prevent text from filling the whole width */
 }
 
 .placeholder-text h2 {
     color: #ffffff; /* White text */
     font-size: 2.5rem; /* Bigger text for the heading */
+    text-align: left; /* Align text to the left */
     margin: 0; /* Remove default margin */
     padding-bottom: 10px; /* Space between heading and paragraph */
 }
 
 .placeholder-text p {
     color: #ffffff; /* White text color */
-    font-size: 1.2rem; /* Adjust font size as needed */
-    margin: 0; /* Remove default margin */
-    padding-top: 10px; /* Space between heading and paragraph */
-    line-height: 1.5; /* Improve readability */
+    font-size: 1.2rem; /* Adjust as needed */
+    text-align: left; /* Align text to the left */
+    margin: 0;
 }
 
 /* Rotating circle */
