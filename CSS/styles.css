@@ -175,18 +175,25 @@ button:hover {
 .dot:hover {
     background: #ffcccb;
 }
+
 /* Updated placeholder text styles */
+.placeholder-text {
+    text-align: center; /* Center text alignment */
+}
+
 .placeholder-text h2 {
     color: #ffffff; /* White text */
     font-size: 2.5rem; /* Bigger text for the heading */
-    text-align: center;
     margin: 0; /* Remove default margin */
     padding-bottom: 10px; /* Space between heading and paragraph */
 }
 
-/* Add margin to move the heading up */
-.placeholder-text {
-    margin-top: -110px; /* Adjust the value as needed to raise the heading */
+.placeholder-text p {
+    color: #ffffff; /* White text color */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    margin: 0; /* Remove default margin */
+    padding-top: 10px; /* Space between heading and paragraph */
+    line-height: 1.5; /* Improve readability */
 }
 
 /* Rotating circle */
