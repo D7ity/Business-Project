@@ -109,13 +109,6 @@ button:hover {
     height: auto;
 }
 
-/* Placeholder text styles */
-.placeholder-text p {
-    color: #ffffff; /* White text color */
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 0;
-}
 
 /* Image container styles */
 .image-container {
