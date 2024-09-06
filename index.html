@@ -25,10 +25,12 @@
                 <div class="placeholder-text">
                     <h2>Our Mission is Your Future</h2>
                     <p>We’ve made it our mission to serve as your resource to learn, prepare, and find best-in-class cemeteries and funeral homes.</p>
+                    <!-- Buttons for content switching -->
+                    <div class="buttons-container">
+                        <button class="switch-content" data-index="1">Content Section 2</button>
+                        <button class="switch-content" data-index="2">Content Section 3</button>
+                    </div>
                 </div>
-
-
-
                 <div class="image-container">
                     <img src="https://raw.githubusercontent.com/D7ity/Business-Project/main/Images/grim-reaper.gif" alt="Placeholder Image" class="placeholder-image">
                 </div>
@@ -56,23 +58,35 @@
             const originalContent = `
             <div class="placeholder-text">
             <h2>Our Mission is Your Future</h2>
+            <p>We’ve made it our mission to serve as your resource to learn, prepare, and find best-in-class cemeteries and funeral homes.</p>
+            <div class="buttons-container">
+                <button class="switch-content" data-index="1">Content Section 2</button>
+                <button class="switch-content" data-index="2">Content Section 3</button>
+            </div>
             </div>
             <div class="image-container">
             <img src="https://raw.githubusercontent.com/D7ity/Business-Project/main/Images/grim-reaper.gif" alt="Placeholder Image" class="placeholder-image">
             </div>`;
 
-            
             // Other content sections
             const contentSections = [
                 originalContent,
                 `<div class="placeholder-text">
                     <p>Content Section 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="buttons-container">
+                        <button class="switch-content" data-index="0">Content Section 1</button>
+                        <button class="switch-content" data-index="2">Content Section 3</button>
+                    </div>
                 </div>
                 <div class="image-container">
                     <img src="https://via.placeholder.com/500x500/ffcccb" alt="Placeholder Image" class="placeholder-image">
                 </div>`,
                 `<div class="placeholder-text">
                     <p>Content Section 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="buttons-container">
+                        <button class="switch-content" data-index="0">Content Section 1</button>
+                        <button class="switch-content" data-index="1">Content Section 2</button>
+                    </div>
                 </div>
                 <div class="image-container">
                     <img src="https://via.placeholder.com/500x500/cccccc" alt="Placeholder Image" class="placeholder-image">
@@ -98,6 +112,16 @@
 
             // Set the initial active dot
             dots[0].classList.add('active');
+
+            // Add event listeners for the switch content buttons
+            document.querySelectorAll('.switch-content').forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = button.getAttribute('data-index');
+                    switchContent(index);
+                    dots.forEach(d => d.classList.remove('active'));
+                    dots[index].classList.add('active');
+                });
+            });
         });
     </script>
 </body>
