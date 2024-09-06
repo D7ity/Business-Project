@@ -127,13 +127,6 @@ button:hover {
     transition: opacity 0.3s ease-in-out; /* Animation for content switching */
 }
 
-/* Ensure image and text containers are centered */
-.placeholder-text {
-    flex: 1; /* Allow flexible width */
-    display: flex;
-    justify-content: flex-end; /* Align text to the right of its container */
-}
-
 .image-container {
     flex: 1; /* Allow flexible width */
     display: flex;
@@ -169,8 +162,9 @@ button:hover {
     background: #ffcccb;
 }
 
-/* Updated placeholder text styles */
+/* Ensure the text stacks vertically */
 .placeholder-text {
+    display: block; /* Ensure text stacks vertically */
     text-align: center; /* Center text alignment */
 }
 
