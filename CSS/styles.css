@@ -106,7 +106,7 @@ button:hover {
 .placeholder-image {
     max-width: 100%;
     height: auto;
-    max-height: 400px; /* Limit image height if needed */
+    max-height: 500px; /* Limit image height if needed */
 }
 
 /* Image container styles */
