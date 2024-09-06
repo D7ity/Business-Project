@@ -188,3 +188,39 @@ button:hover {
 .placeholder-text {
     margin-top: -110px; /* Adjust the value as needed to raise the heading */
 }
+
+/* Rotating circle */
+.rotating-circle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #ff5964;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    animation: rotate 3s linear infinite; /* Add animation */
+}
+
+.rotating-circle:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Rotation animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
