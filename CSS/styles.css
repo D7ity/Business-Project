@@ -282,4 +282,61 @@ button:hover {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
+/* Style for the support rectangle */
+.support-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.support-rectangle {
+    background-color: #ffcccb;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.support-rectangle h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    height: 100px; /* Adjust height as needed */
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff5964;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: #ff7f84;
+}
 
