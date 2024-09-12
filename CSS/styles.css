@@ -274,3 +274,44 @@ button:hover {
     background-color: #ffcccb;
 }
 
+/* Style for the rectangles */
+.rectangles-container {
+    display: flex;
+    justify-content: center; /* Center the rectangles horizontally */
+    gap: 20px; /* Space between rectangles */
+    margin-top: 50px; /* Space from the top */
+}
+
+.rectangle {
+    background-color: #ffcccb;
+    width: 200px; /* Set width */
+    height: 300px; /* Set height to 2/3 of its original value */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.rectangle h3 {
+    margin-bottom: 20px;
+}
+
+/* Learn more button */
+.learn-more {
+    padding: 10px 20px; /* Reduce button size */
+    background-color: #ff5964;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    height: 30px; /* Reduced height by half */
+}
+
+.learn-more:hover {
+    background-color: #ff7f84;
+}
+
