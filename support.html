@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main - Hatch's Caskets</title>
+    <title>Support - Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
@@ -19,8 +19,22 @@
     </header>
     
     <main>
-        <h2>Support</h2>
-        <p>Find out how we can assist you...</p>
+        <div class="support-container">
+            <div class="support-rectangle">
+                <h2>Need Assistance?</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="email">Enter Email here:</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assistance">What do you need assistance with:</label>
+                        <textarea id="assistance" name="assistance" placeholder="Describe your issue here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -37,3 +51,4 @@
     </script>
 </body>
 </html>
+
