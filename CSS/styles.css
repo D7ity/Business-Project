@@ -336,8 +336,11 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Added transition for smoother hover effect */
 }
 
 .submit-button:hover {
     background-color: #ff7f84;
+    transform: scale(1.02); /* Slightly scale up on hover */
 }
+
