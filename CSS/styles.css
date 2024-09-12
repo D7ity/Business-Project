@@ -282,18 +282,17 @@ button:hover {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
-/* Style for the support rectangle */
+/* Container for the support rectangle */
 .support-container {
     display: flex;
     justify-content: center;
-    margin: 20px;
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    margin: 40px 0; /* Added top and bottom margin to move the rectangle down */
 }
 
 .support-rectangle {
     background-color: #ffcccb;
-    width: 800px; /* Reduced width by 33% from 1200px */
-    max-width: 100vw; /* Ensure it doesn't exceed viewport width */
+    width: 800px; /* Reduced width */
+    max-width: 100%; /* Ensure it fits within the viewport width */
     height: 400px; /* Adjust height if needed */
     padding: 20px;
     border-radius: 10px;
@@ -342,4 +341,3 @@ button:hover {
 .submit-button:hover {
     background-color: #ff7f84;
 }
-
