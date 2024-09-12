@@ -289,46 +289,33 @@ button:hover {
     margin: 40px 0; /* Added top and bottom margin to move the rectangle down */
 }
 
-.support-rectangle {
+./* Style for the rectangle */
+.rectangle {
     background-color: #ffcccb;
-    width: 800px; /* Reduced width */
-    max-width: 100%; /* Ensure it fits within the viewport width */
-    height: 400px; /* Adjust height if needed */
-    padding: 20px;
+    width: 600px; /* Width of the rectangle */
+    height: 200px; /* Adjusted height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto; /* Centered rectangle with margin */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box; /* Include padding and border in element’s total width and height */
 }
 
-.support-rectangle h2 {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
+/* Style for the text boxes */
+.rectangle input[type="text"] {
+    width: calc(100% - 20px); /* Adjust to fit within the rectangle */
     padding: 10px;
-    border: 1px solid #ddd;
+    margin-bottom: 15px; /* Space between text boxes */
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.form-group textarea {
-    height: 100px; /* Adjust height as needed */
-}
-
+/* Style for the submit button */
 .submit-button {
     display: block;
-    width: 100%;
+    width: calc(100% - 20px); /* Match width with text boxes */
     padding: 10px;
     background-color: #ff5964;
     color: white;
@@ -336,11 +323,10 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s; /* Added transition for smoother hover effect */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth hover effect */
 }
 
 .submit-button:hover {
     background-color: #ff7f84;
     transform: scale(1.02); /* Slightly scale up on hover */
 }
-
