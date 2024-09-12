@@ -291,8 +291,8 @@ button:hover {
 
 .support-rectangle {
     background-color: #ffcccb;
-    width: 80%; /* Adjust width as needed */
-    max-width: 800px;
+    width: 100%; /* Full width of the parent container */
+    max-width: 2400px; /* Adjust as needed to ensure it’s triple the default size */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -339,4 +339,5 @@ button:hover {
 .submit-button:hover {
     background-color: #ff7f84;
 }
+
 
