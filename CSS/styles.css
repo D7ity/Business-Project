@@ -227,51 +227,320 @@ button:hover {
     }
 }
 
+/* Ensure body layout */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #2d0916, #200a2b);
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px; /* Reduced padding to move the nav bar closer to the edge */
+    box-sizing: border-box;
+    opacity: 1; /* Ensure header is visible */
+    transition: opacity 1s;
+    position: absolute;
+    top: 50px;
+}
+
+h1 {
+    margin: 0;
+    color: #ff5964;
+    font-size: 2.5rem; /* Updated title size */
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+.navButton {
+    font-size: 20px;
+    color: #ff5964;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.navButton:hover {
+    color: #ffcccb;
+}
+
+.navButton.active::after {
+    content: '•';
+    position: absolute;
+    bottom: -15px; /* Lower the dot by 10px */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #ff5964;
+}
+
+/* For the "Support" button, drop the dot by another 10px */
+.navButton.active:last-child::after {
+    bottom: -30px; /* Additional 10px drop */
+}
+
+/* Specific style for the "Support" button */
+.navButton:last-child {
+    border: 2px solid #ff5964;
+    border-radius: 5px;
+    padding: 8px 16px;
+    background: none;
+}
+
+/* Button styles */
+button {
+    font-size: 40px;
+    color: #ff5964;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 1s, transform 0.3s;
+    outline: none;
+    text-transform: uppercase;
+}
+
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+/* Centered horizontally (x-axis) */
+.centered-x {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
+.placeholder-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px; /* Limit image height if needed */
+}
+
+/* Image container styles */
+.image-container {
+    margin-top: 20px; /* Adjust as needed to position the image below the title */
+    padding-left: 50px; /* Add padding to the left for equal distance */
+}
+
+/* Center content container with equal spacing */
+.content-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 80%; /* Adjust as needed */
+    max-width: 1200px; /* Limit maximum width */
+    margin: 0 auto; /* Center the content container */
+    opacity: 1; /* Ensure content is visible */
+    transition: opacity 0.3s ease-in-out; /* Animation for content switching */
+    padding: 20px; /* Add some padding if needed */
+    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+}
+
+
+/* Image container styles */
+.image-container {
+    flex: 1; /* Allow flexible width */
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+}
+
+/* Dots styling */
+.dots {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #ff5964;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.dot.active {
+    background: #ffcccb;
+    transform: scale(1.2);
+}
+
+
+.dot:hover {
+    background: #ffcccb;
+}
+
+/* Ensure placeholder text and image are properly sized */
+.placeholder-text {
+    flex: 1; /* Allow flexible width */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center; /* Center text vertically */
+    align-items: flex-start; /* Align text to the left of its container */
+    max-width: 60%; /* Adjust to prevent text from filling the whole width */
+}
+
+.placeholder-text h2 {
+    color: #ffffff; /* White text */
+    font-size: 2.5rem; /* Bigger text for the heading */
+    text-align: left; /* Align text to the left */
+    margin: 0; /* Remove default margin */
+    padding-bottom: 10px; /* Space between heading and paragraph */
+}
+
+.placeholder-text p {
+    color: #ffffff; /* White text color */
+    font-size: 1.2rem; /* Adjust as needed */
+    text-align: left; /* Align text to the left */
+    margin: 0;
+}
+
+/* Rotating circle */
+.rotating-circle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #ff5964;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    animation: rotate 3s linear infinite; /* Add animation */
+}
+
+.rotating-circle:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Rotation animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* Box container */
 .box-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between boxes */
     margin-top: 50px; /* Adjust margin from header */
 }
 
 /* Individual boxes */
 .info-box {
-    width: 200px; /* Adjust width */
-    height: 80px; /* Adjust height */
-    background-color: #ffffff; /* White background */
-    border-radius: 25px; /* Rounded corners */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow to create 3D effect */
+    width: 300px; /* Box width */
+    height: 500px; /* Box height (taller than wide) */
+    background-color: #2d0916; /* Background color */
+    border: 2px solid #ff5964; /* Border styling */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    transition: transform 0.2s ease-in-out;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow for depth */
 }
 
-.info-box:hover {
-    transform: translateY(-5px); /* 3D hover effect */
-}
-
+/* Headings inside boxes */
 .info-box h2 {
-    color: #333333; /* Darker text color for contrast */
-    font-size: 1.2rem;
+    color: #ffffff;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0;
 }
 
 /* Button inside boxes */
 .info-button {
-    background-color: #ffffff; /* White button background */
-    color: #333333; /* Text color */
+    background-color: #ff5964;
+    color: #ffffff;
     padding: 10px 20px;
     font-weight: bold;
-    border: 2px solid #cccccc; /* Subtle border for definition */
-    border-radius: 25px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for button depth */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .info-button:hover {
-    background-color: #f0f0f0; /* Slight hover effect */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+    background-color: #ffcccb;
+}
+
+/* Style for the rectangles */
+.rectangles-container {
+    display: flex;
+    justify-content: center; /* Center the rectangles horizontally */
+    gap: 20px; /* Space between rectangles */
+    margin-top: 50px; /* Space from the top */
+}
+
+.rectangle {
+    background-color: #ffcccb;
+    width: 200px; /* Set width */
+    height: 300px; /* Set height to 2/3 of its original value */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.rectangle h3 {
+    margin-bottom: 20px;
+}
+
+/* Learn more button */
+.learn-more {
+    padding: 10px 20px; /* Reduce button size */
+    background-color: #ff5964;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    height: 30px; /* Reduced height by half */
+}
+
+.learn-more:hover {
+    background-color: #ff7f84;
 }
 
