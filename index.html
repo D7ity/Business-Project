@@ -37,12 +37,6 @@
         </div>
     </main>
 
-    <!-- Dots for content switching -->
-    <div class="dots">
-        <div class="dot" data-index="0"></div>
-        <div class="dot" data-index="1"></div>
-        <div class="dot" data-index="2"></div>
-    </div>
 
     <!-- Rotating circle -->
     <a href="https://forms.gle/gSvECiBezR5DqU2M6" target="_blank" class="rotating-circle">10% OFF</a>
@@ -52,46 +46,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const dots = document.querySelectorAll('.dot');
             const contentContainer = document.querySelector('.content-container');
-            
-            // Original content section
-            const originalContent = `
-            <div class="placeholder-text">
-                <h2>Our Mission is Your Future</h2>
-                <p>We’ve made it our mission to serve as your resource to learn, prepare, and find best-in-class cemeteries and plots.</p>
-                <div class="buttons">
-                    <a href="aboutus.html" class="button">About Us</a>
-                    <a href="pricing.html" class="button">Pricing</a>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="https://raw.githubusercontent.com/D7ity/Business-Project/main/Images/grim-reaper.gif" alt="Placeholder Image" class="placeholder-image">
-            </div>`;
-
-            // Other content sections
-            const contentSections = [
-                originalContent,
-                `<div class="placeholder-text">
-                    <p>Content Section 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <div class="buttons">
-                        <a href="aboutus.html" class="button">About Us</a>
-                        <a href="pricing.html" class="button">Pricing</a>
-                    </div>
-                </div>
-                <div class="image-container">
-                    <img src="https://via.placeholder.com/500x500/ffcccb" alt="Placeholder Image" class="placeholder-image">
-                </div>`,
-                `<div class="placeholder-text">
-                    <p>Content Section 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="buttons">
-                        <a href="aboutus.html" class="button">About Us</a>
-                        <a href="pricing.html" class="button">Pricing</a>
-                    </div>
-                </div>
-                <div class="image-container">
-                    <img src="https://via.placeholder.com/500x500/cccccc" alt="Placeholder Image" class="placeholder-image">
-                </div>`
-            ];
-
+        
             function switchContent(index) {
                 contentContainer.style.opacity = 0;
                 setTimeout(() => {
