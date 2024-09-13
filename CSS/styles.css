@@ -357,7 +357,10 @@ button:hover {
 
 .mission-statement h2 {
     text-align: center; /* Ensure the heading is centered */
-    font-size: 2rem; /* Adjust font size for the heading */
+    font-size: 5rem; /* Adjust font size for the heading */
     margin-bottom: 20px; /* Add spacing below the heading */
+    margin-left: 50px; /* Add spacing below the heading */
+    color: white; /* Set text color to white */
+
 }
 
