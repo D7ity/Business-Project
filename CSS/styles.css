@@ -355,7 +355,7 @@ button:hover {
     font-size: 1.2rem; /* Adjust font size as needed */
 }
 
-.mission-statement h1 {
+.mission-statement h4 {
     text-align: center; /* Ensure the heading is centered */
     font-size: 2rem; /* Adjust font size for the heading */
     margin-bottom: 20px; /* Add spacing below the heading */
