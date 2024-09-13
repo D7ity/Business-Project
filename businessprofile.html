@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developing a Business Profile - Hatch's Caskets</title>
+    <title>Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/styles.css">
     <style>
         /* Style for rectangles with unique IDs and animations */
         .rectangles-container {
@@ -14,6 +13,7 @@
             gap: 20px; /* Space between rectangles */
             margin-top: 50px; /* Space from the top */
             position: relative;
+            height: 300px; /* Fixed height for container */
         }
 
         .rectangle1, .rectangle2 {
@@ -28,23 +28,14 @@
             padding: 10px;
             text-align: center;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
-            transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease; /* Animation for expanding */
-            position: absolute;
+            transition: width 0.5s ease, height 0.5s ease; /* Animation for expanding */
+            position: relative;
             overflow: hidden;
         }
 
         .rectangle1.expanded, .rectangle2.expanded {
             width: 600px; /* Adjust width as needed */
-            height: 300px; /* Adjust height if needed */
-            transform: translateX(0); /* Center expanded rectangle */
-        }
-
-        .rectangle1.expanded {
-            z-index: 10; /* Ensure expanded rectangle is above others */
-        }
-
-        .rectangle1, .rectangle2 {
-            z-index: 1; /* Ensure initial rectangles are below expanded one */
+            height: 300px; /* Height remains same */
         }
 
         .rectangle1 h3, .rectangle2 h3 {
@@ -52,6 +43,15 @@
             text-transform: uppercase; /* Text style */
             font-size: 1.2rem;
             color: #333;
+        }
+
+        .rectangle1 .info, .rectangle2 .info {
+            display: none; /* Hide the info by default */
+            padding: 10px;
+        }
+
+        .rectangle1.expanded .info, .rectangle2.expanded .info {
+            display: block; /* Show the info when expanded */
         }
 
         .learn-more {
@@ -107,9 +107,6 @@
     </header>
 
     <main>
-        <h2>Developing a Business Profile</h2>
-        <p>Content for the Developing a Business Profile page...</p>
-
         <div class="rectangles-container">
             <div id="rectangle1" class="rectangle1">
                 <h3>Smart Goals</h3>
@@ -154,12 +151,14 @@
                         expandedRectangle.classList.remove('expanded');
                         expandedRectangle.querySelector('.learn-more').style.display = 'block'; // Show 'Learn More' button
                         expandedRectangle.querySelector('.close-btn').style.display = 'none'; // Hide 'Close' button
+                        expandedRectangle.querySelector('.info').style.display = 'none'; // Hide info
                     }
 
                     if (targetRectangle.classList.contains('expanded')) {
                         targetRectangle.classList.remove('expanded');
                         button.style.display = 'block'; // Show 'Learn More' button again
                         targetRectangle.querySelector('.close-btn').style.display = 'none'; // Hide 'Close' button
+                        targetRectangle.querySelector('.info').style.display = 'none'; // Hide info
                     } else {
                         targetRectangle.classList.add('expanded');
                         button.style.display = 'none'; // Hide 'Learn More' button
@@ -173,9 +172,11 @@
                                 targetRectangle.classList.remove('expanded');
                                 closeButton.style.display = 'none'; // Hide 'Close' button
                                 button.style.display = 'block'; // Show 'Learn More' button
+                                targetRectangle.querySelector('.info').style.display = 'none'; // Hide info
                             });
                         }
                         closeButton.style.display = 'block'; // Show 'Close' button
+                        targetRectangle.querySelector('.info').style.display = 'block'; // Show info
                     }
 
                     expandedRectangle = targetRectangle;
@@ -185,4 +186,3 @@
     </script>
 </body>
 </html>
-
