@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Mix - Hatch's Caskets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Style for rectangles and animations */
+        .rectangles-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
 
+        .rectangle {
+            background-color: #ffcccb;
+            width: 200px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rectangle.expanded {
+            width: 600px;
+            height: 300px;
+        }
+
+        .rectangle h3 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #333;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+        }
+
+        .rectangle .info {
+            display: none;
+            padding: 10px;
+            overflow-y: auto;
+            height: calc(100% - 60px);
+        }
+
+        .rectangle.expanded .info {
+            display: block;
+        }
+
+        .learn-more {
+            padding: 10px 20px;
+            background-color: #ff5964;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 30px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #ff5964;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 30px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Dot under 'About Us' navigation */
+        .navButton.active::after {
+            content: '•';
+            color: red;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Hatch's Caskets</h1>
+        <nav id="navMenu">
+            <a href="index.html" class="navButton">Main</a>
+            <a href="aboutus.html" class="navButton">About Us</a>
+            <a href="pricing.html" class="navButton">Pricing</a>
+            <a href="support.html" class="navButton">Support</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Marketing Mix</h2>
+        <p>Content for the Our Marketing Mix page...</p>
+        <div class="rectangles-container">
+            <div id="product" class="rectangle">
+                <h3>Product</h3>
+                <button class="learn-more" data-target="#product">Learn More</button>
+                <div class="info">
+                    <p>Details about the product offering...</p>
+                </div>
+            </div>
+            <div id="price" class="rectangle">
+                <h3>Price</h3>
+                <button class="learn-more" data-target="#price">Learn More</button>
+                <div class="info">
+                    <p>Details about pricing strategy...</p>
+                </div>
+            </div>
+            <div id="place" class="rectangle">
+                <h3>Place</h3>
+                <button class="learn-more" data-target="#place">Learn More</button>
+                <div class="info">
+                    <p>Details about distribution channels...</p>
+                </div>
+            </div>
+            <div id="promotion" class="rectangle">
+                <h3>Promotion</h3>
+                <button class="learn-more" data-target="#promotion">Learn More</button>
+                <div class="info">
+                    <p>Details about promotional strategies...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const learnMoreButtons = document.querySelectorAll('.learn-more');
+            let expandedRectangle = null;
+
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetRectangle = document.querySelector(targetId);
+
+                    if (expandedRectangle && expandedRectangle !== targetRectangle) {
+                        expandedRectangle.classList.remove('expanded');
+                        expandedRectangle.querySelector('.learn-more').style.display = 'block';
+                        expandedRectangle.querySelector('.close-btn').style.display = 'none';
+                        expandedRectangle.querySelector('.info').style.display = 'none';
+                    }
+
+                    if (targetRectangle.classList.contains('expanded')) {
+                        targetRectangle.classList.remove('expanded');
+                        button.style.display = 'block';
+                        targetRectangle.querySelector('.close-btn').style.display = 'none';
+                        targetRectangle.querySelector('.info').style.display = 'none';
+                    } else {
+                        targetRectangle.classList.add('expanded');
+                        button.style.display = 'none';
+                        let closeButton = targetRectangle.querySelector('.close-btn');
+                        if (!closeButton) {
+                            closeButton = document.createElement('button');
+                            closeButton.classList.add('close-btn');
+                            closeButton.textContent = 'Close';
+                            targetRectangle.appendChild(closeButton);
+                            closeButton.addEventListener('click', () => {
+                                targetRectangle.classList.remove('expanded');
+                                closeButton.style.display = 'none';
+                                button.style.display = 'block';
+                                targetRectangle.querySelector('.info').style.display = 'none';
+                            });
+                        }
+                        targetRectangle.querySelector('.info').style.display = 'block';
+                        closeButton.style.display = 'block';
+                        expandedRectangle = targetRectangle;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
