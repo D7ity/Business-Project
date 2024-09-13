@@ -354,3 +354,9 @@ button:hover {
     padding: 20px; /* Add padding */
     font-size: 1.2rem; /* Adjust font size as needed */
 }
+
+.mission-statement h1 {
+    font-size: 2rem; /* Adjust font size for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
