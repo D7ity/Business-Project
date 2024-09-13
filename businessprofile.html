@@ -6,6 +6,94 @@
     <title>Developing a Business Profile - Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Style for rectangles with unique IDs and animations */
+        .rectangles-container {
+            display: flex;
+            justify-content: center; /* Center the rectangles horizontally */
+            gap: 20px; /* Space between rectangles */
+            margin-top: 50px; /* Space from the top */
+            position: relative;
+        }
+
+        .rectangle1, .rectangle2 {
+            background-color: #ffcccb;
+            width: 200px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+            transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease; /* Animation for expanding */
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .rectangle1.expanded, .rectangle2.expanded {
+            width: 600px; /* Adjust width as needed */
+            height: 300px; /* Adjust height if needed */
+            transform: translateX(0); /* Center expanded rectangle */
+        }
+
+        .rectangle1.expanded {
+            z-index: 10; /* Ensure expanded rectangle is above others */
+        }
+
+        .rectangle1, .rectangle2 {
+            z-index: 1; /* Ensure initial rectangles are below expanded one */
+        }
+
+        .rectangle1 h3, .rectangle2 h3 {
+            margin-bottom: 20px;
+            text-transform: uppercase; /* Text style */
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .learn-more {
+            padding: 10px 20px;
+            background-color: #ff5964;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 30px; /* Reduced height by half */
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover */
+        }
+
+        .learn-more:hover {
+            transform: translateY(-5px); /* Lift up on hover */
+            background-color: #ff7f84;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #ff5964;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 30px; /* Reduced height by half */
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+            position: absolute;
+            bottom: 20px; /* Position at the bottom of the expanded rectangle */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover */
+        }
+
+        .close-btn:hover {
+            transform: translateY(-5px); /* Lift up on hover */
+            background-color: #ff7f84;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+        }
+    </style>
 </head>
 <body>
     <header id="header">
@@ -19,32 +107,34 @@
     </header>
 
     <main>
+        <h2>Developing a Business Profile</h2>
+        <p>Content for the Developing a Business Profile page...</p>
+
         <div class="rectangles-container">
-            <div class="rectangle1">
+            <div id="rectangle1" class="rectangle1">
                 <h3>Smart Goals</h3>
-                <button class="learn-more" data-target="rectangle1">Learn More</button>
-                <div class="rectangle-content" id="rectangle1">
+                <button class="learn-more" data-target="#rectangle1">Learn More</button>
+                <div class="info">
                     <p><strong>Objective 1: Increasing Sales</strong><br>
                     Specific: Increase sales of graveyard plots by 20% within the next 12 months by targeting both preneed and currently need customers.<br>
                     Measurable: Track the number of graveyard plots sold each quarter and compare against the previous year’s figures.<br>
                     Achievable: Implement targeted online and offline advertising campaigns, offer limited-time discounts, and partner with local retirement communities.<br>
                     Relevant: This goal aligns with our mission to provide peace of mind preservation by making our services more accessible.<br>
                     Time-bound: Achieve the 20% increase by the end of the next 12 months, with quarterly check-ins to check progress.</p>
+
                     <p><strong>Objective 2: Improving Relationships with Customers</strong><br>
                     Specific: Increase customer satisfaction scores by 15% within the next 6 months by enhancing customer service and providing personalized support.<br>
                     Measurable: Use customer satisfaction surveys.<br>
                     Achievable: Train employees on empathy and customer service best practices, and implement follow-up procedures to ensure customer needs are met after the sale.<br>
                     Relevant: This goal supports our mission by ensuring that we provide compassionate service.<br>
                     Time-bound: Achieve a 15% increase in customer satisfaction within 6 months, with monthly reviews to monitor progress.</p>
-                    <button class="close-btn" data-target="rectangle1">Close</button>
                 </div>
             </div>
-            <div class="rectangle2">
+            <div id="rectangle2" class="rectangle2">
                 <h3>Legal Forces</h3>
-                <button class="learn-more" data-target="rectangle2">Learn More</button>
-                <div class="rectangle-content" id="rectangle2">
-                    <p><!-- Add content here --></p>
-                    <button class="close-btn" data-target="rectangle2">Close</button>
+                <button class="learn-more" data-target="#rectangle2">Learn More</button>
+                <div class="info">
+                    <p>Details about Legal Forces go here.</p>
                 </div>
             </div>
         </div>
@@ -53,52 +143,42 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const learnMoreButtons = document.querySelectorAll('.learn-more');
-            const closeButtons = document.querySelectorAll('.close-btn');
-            const rectangles = document.querySelectorAll('.rectangle-content');
+            let expandedRectangle = null;
 
             learnMoreButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const targetId = button.getAttribute('data-target');
-                    const targetRectangle = document.getElementById(targetId);
+                    const targetRectangle = document.querySelector(targetId);
                     
-                    // Hide other rectangles
-                    rectangles.forEach(rectangle => {
-                        if (rectangle.id !== targetId) {
-                            rectangle.style.display = 'none';
+                    if (expandedRectangle && expandedRectangle !== targetRectangle) {
+                        expandedRectangle.classList.remove('expanded');
+                        expandedRectangle.querySelector('.learn-more').style.display = 'block'; // Show 'Learn More' button
+                        expandedRectangle.querySelector('.close-btn').style.display = 'none'; // Hide 'Close' button
+                    }
+
+                    if (targetRectangle.classList.contains('expanded')) {
+                        targetRectangle.classList.remove('expanded');
+                        button.style.display = 'block'; // Show 'Learn More' button again
+                        targetRectangle.querySelector('.close-btn').style.display = 'none'; // Hide 'Close' button
+                    } else {
+                        targetRectangle.classList.add('expanded');
+                        button.style.display = 'none'; // Hide 'Learn More' button
+                        let closeButton = targetRectangle.querySelector('.close-btn');
+                        if (!closeButton) {
+                            closeButton = document.createElement('button');
+                            closeButton.classList.add('close-btn');
+                            closeButton.textContent = 'Close';
+                            targetRectangle.appendChild(closeButton);
+                            closeButton.addEventListener('click', () => {
+                                targetRectangle.classList.remove('expanded');
+                                closeButton.style.display = 'none'; // Hide 'Close' button
+                                button.style.display = 'block'; // Show 'Learn More' button
+                            });
                         }
-                    });
+                        closeButton.style.display = 'block'; // Show 'Close' button
+                    }
 
-                    // Show and expand the clicked rectangle
-                    targetRectangle.style.display = 'block';
-                    targetRectangle.classList.add('expand');
-
-                    // Disable other Learn More buttons
-                    learnMoreButtons.forEach(btn => {
-                        if (btn !== button) {
-                            btn.disabled = true;
-                        }
-                    });
-                });
-            });
-
-            closeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetId = button.getAttribute('data-target');
-                    const targetRectangle = document.getElementById(targetId);
-
-                    // Hide the expanded rectangle and show others
-                    targetRectangle.classList.remove('expand');
-                    targetRectangle.style.display = 'none';
-
-                    // Enable all Learn More buttons
-                    learnMoreButtons.forEach(btn => {
-                        btn.disabled = false;
-                    });
-
-                    // Show all rectangles
-                    rectangles.forEach(rectangle => {
-                        rectangle.style.display = 'block';
-                    });
+                    expandedRectangle = targetRectangle;
                 });
             });
         });
