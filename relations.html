@@ -6,13 +6,96 @@
     <title>Relations - Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Style for rectangles and animations */
+        .rectangles-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            position: relative;
+            height: 300px;
+        }
+
+        .rectangle {
+            background-color: #ffcccb;
+            width: 200px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rectangle.expanded {
+            width: 600px;
+            height: 300px;
+        }
+
+        .rectangle h3 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #333;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+        }
+
+        .rectangle .info {
+            display: none;
+            padding: 10px;
+            overflow-y: auto;
+            height: calc(100% - 60px);
+        }
+
+        .rectangle.expanded .info {
+            display: block;
+        }
+
+        .learn-more {
+            padding: 10px 20px;
+            background-color: #ff5964;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 30px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #ff5964;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 30px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
 </head>
 <body>
     <header id="header">
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
             <a href="index.html" class="navButton">Main</a>
-            <a href="aboutus.html" class="navButton active">About Us</a>
+            <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
             <a href="support.html" class="navButton">Support</a>
         </nav>
@@ -20,17 +103,74 @@
 
     <main>
         <h2>Our Past</h2>
-        <p>Content for the Our Past page...</p>
+        <div class="rectangles-container">
+            <div id="rectangle1" class="rectangle">
+                <h3>Pareto Principle</h3>
+                <button class="learn-more" data-target="#rectangle1">Learn More</button>
+                <div class="info">
+                    <p>Content about the Pareto Principle, which suggests that 80% of effects come from 20% of causes. In our business, this principle can be applied to identify key factors or customers that contribute most significantly to our outcomes, enabling more focused strategies.</p>
+                </div>
+            </div>
+            <div id="rectangle2" class="rectangle">
+                <h3>Corporate Social Responsibility</h3>
+                <button class="learn-more" data-target="#rectangle2">Learn More</button>
+                <div class="info">
+                    <p>Content about Corporate Social Responsibility (CSR) practices that our company engages in, including environmental sustainability efforts, community outreach, and ethical business practices that align with our values and enhance our brand reputation.</p>
+                </div>
+            </div>
+            <div id="rectangle3" class="rectangle">
+                <h3>Past Scandals</h3>
+                <button class="learn-more" data-target="#rectangle3">Learn More</button>
+                <div class="info">
+                    <p>Content about any past scandals or issues the company has faced, including how they were resolved and the lessons learned to ensure improved practices and transparency moving forward.</p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const currentLocation = window.location.pathname.split("/").pop();
-            const navButtons = document.querySelectorAll('.navButton');
-            navButtons.forEach(button => {
-                if (button.getAttribute('href') === currentLocation) {
-                    button.classList.add('active');
-                }
+            const learnMoreButtons = document.querySelectorAll('.learn-more');
+            let expandedRectangle = null;
+
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetRectangle = document.querySelector(targetId);
+
+                    if (expandedRectangle && expandedRectangle !== targetRectangle) {
+                        expandedRectangle.classList.remove('expanded');
+                        expandedRectangle.querySelector('.learn-more').style.display = 'block';
+                        expandedRectangle.querySelector('.close-btn').style.display = 'none';
+                        expandedRectangle.querySelector('.info').style.display = 'none';
+                    }
+
+                    if (targetRectangle.classList.contains('expanded')) {
+                        targetRectangle.classList.remove('expanded');
+                        button.style.display = 'block';
+                        targetRectangle.querySelector('.close-btn').style.display = 'none';
+                        targetRectangle.querySelector('.info').style.display = 'none';
+                    } else {
+                        targetRectangle.classList.add('expanded');
+                        button.style.display = 'none';
+                        let closeButton = targetRectangle.querySelector('.close-btn');
+                        if (!closeButton) {
+                            closeButton = document.createElement('button');
+                            closeButton.classList.add('close-btn');
+                            closeButton.textContent = 'Close';
+                            targetRectangle.appendChild(closeButton);
+                            closeButton.addEventListener('click', () => {
+                                targetRectangle.classList.remove('expanded');
+                                closeButton.style.display = 'none';
+                                button.style.display = 'block';
+                                targetRectangle.querySelector('.info').style.display = 'none';
+                            });
+                        }
+                        targetRectangle.querySelector('.info').style.display = 'block';
+                        closeButton.style.display = 'block';
+                        expandedRectangle = targetRectangle;
+                    }
+                });
             });
         });
     </script>
