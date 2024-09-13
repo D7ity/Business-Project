@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css"> <!-- Re-added link to external stylesheet -->
     <style>
         /* Style for rectangles with unique IDs and animations */
         .rectangles-container {
@@ -28,7 +29,7 @@
             padding: 10px;
             text-align: center;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
-            transition: width 0.5s ease, height 0.5s ease; /* Animation for expanding */
+            transition: width 0.5s ease; /* Animation for expanding */
             position: relative;
             overflow: hidden;
         }
@@ -43,11 +44,17 @@
             text-transform: uppercase; /* Text style */
             font-size: 1.2rem;
             color: #333;
+            position: absolute; /* Fix the header to the top */
+            top: 10px; /* Adjust as needed */
+            left: 10px; /* Adjust as needed */
+            width: calc(100% - 20px); /* Ensure full width minus padding */
         }
 
         .rectangle1 .info, .rectangle2 .info {
             display: none; /* Hide the info by default */
             padding: 10px;
+            overflow-y: auto; /* Enable vertical scrolling */
+            height: calc(100% - 60px); /* Adjust height to fit within the rectangle */
         }
 
         .rectangle1.expanded .info, .rectangle2.expanded .info {
@@ -84,7 +91,8 @@
             height: 30px; /* Reduced height by half */
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
             position: absolute;
-            bottom: 20px; /* Position at the bottom of the expanded rectangle */
+            bottom: 10px; /* Position at the bottom of the expanded rectangle */
+            left: 10px; /* Align with title */
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover */
         }
 
