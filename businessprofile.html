@@ -6,70 +6,152 @@
     <title>Developing a Business Profile - Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Unique flags and animation for expanding rectangles */
+        .rectangle-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .rectangle-content {
+            background-color: #ffcccb;
+            width: 200px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rectangle-content.expanded {
+            width: 600px; /* Adjust as needed */
+        }
+
+        .rectangle-content.expanded .learn-more {
+            background-color: #ff7f84;
+            color: white;
+        }
+
+        .rectangle-content h3 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .learn-more {
+            padding: 10px 20px;
+            background-color: #ff5964;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            height: 30px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .learn-more:hover {
+            transform: translateY(-5px);
+            background-color: #ff7f84;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .expanded-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px; /* Adjust width as needed */
+            height: 100%;
+            overflow-y: auto;
+            z-index: 10;
+            transition: width 0.3s ease;
+        }
+
+        .expanded-content.show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header id="header">
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
             <a href="index.html" class="navButton">Main</a>
-            <a href="aboutus.html" class="navButton">About Us</a>
+            <a href="aboutus.html" class="navButton active">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
             <a href="support.html" class="navButton">Support</a>
         </nav>
     </header>
 
     <main>
-        <h2>Developing a Business Profile</h2>
-        <div class="rectangles-container">
-            <!-- Smart Goals Rectangle -->
-            <div class="rectangle" id="smartGoals">
+        <div class="rectangle-container" id="rectangle1-container">
+            <div class="rectangle-content" id="rectangle1-content">
                 <h3>Smart Goals</h3>
-                <button class="learn-more" onclick="toggleRectangle('smartGoals')">Learn More</button>
-                <div class="info-content">
-                    <h4>Objective 1: Increasing Sales</h4>
-                    <ul>
-                        <li><strong>Specific:</strong> Increase sales of graveyard plots by 20% within the next 12 months by targeting both preneed and currently need customers.</li>
-                        <li><strong>Measurable:</strong> Track the number of graveyard plots sold each quarter and compare against the previous year’s figures.</li>
-                        <li><strong>Achievable:</strong> Implement targeted online and offline advertising campaigns, offer limited-time discounts, and partner with local retirement communities.</li>
-                        <li><strong>Relevant:</strong> This goal aligns with our mission to provide peace of mind preservation by making our services more accessible.</li>
-                        <li><strong>Time-bound:</strong> Achieve the 20% increase by the end of the next 12 months, with quarterly check-ins to check progress.</li>
-                    </ul>
-                    <h4>Objective 2: Improving Relationships with Customers</h4>
-                    <ul>
-                        <li><strong>Specific:</strong> Increase customer satisfaction scores by 15% within the next 6 months by enhancing customer service and providing personalized support.</li>
-                        <li><strong>Measurable:</strong> Use customer satisfaction surveys.</li>
-                        <li><strong>Achievable:</strong> Train employees on empathy and customer service best practices, and implement follow-up procedures to ensure customer needs are met after the sale.</li>
-                        <li><strong>Relevant:</strong> This goal supports our mission by ensuring we provide compassionate service.</li>
-                        <li><strong>Time-bound:</strong> Achieve a 15% increase in customer satisfaction within 6 months, with monthly reviews to monitor progress.</li>
-                    </ul>
-                </div>
+                <button class="learn-more" id="learn-more-1">Learn More</button>
             </div>
+            <div class="expanded-content" id="expanded-content-1">
+                <button class="learn-more" id="close-1">Close</button>
+                <p><strong>Objective 1: Increasing Sales</strong><br>
+                Specific: Increase sales of graveyard plots by 20% within the next 12 months by targeting both preneed and currently need customers.<br>
+                Measurable: Track the number of graveyard plots sold each quarter and compare against the previous year’s figures.<br>
+                Achievable: Implement targeted online and offline advertising campaigns, offer limited-time discounts, and partner with local retirement communities.<br>
+                Relevant: This goal aligns with our mission to provide peace of mind preservation by making our services more accessible.<br>
+                Time-bound: Achieve the 20% increase by the end of the next 12 months, with quarterly check-ins to check progress.</p>
+                <p><strong>Objective 2: Improving Relationships with Customers</strong><br>
+                Specific: Increase customer satisfaction scores by 15% within the next 6 months by enhancing customer service and providing personalized support.<br>
+                Measurable: Use customer satisfaction surveys.<br>
+                Achievable: Train employees on empathy and customer service best practices, and implement follow-up procedures to ensure customer needs are met after the sale.<br>
+                Relevant: This goal supports our mission by ensuring that we provide compassionate service.<br>
+                Time-bound: Achieve a 15% increase in customer satisfaction within 6 months, with monthly reviews to monitor progress.</p>
+            </div>
+        </div>
 
-            <!-- Legal Forces Rectangle -->
-            <div class="rectangle" id="legalForces">
+        <div class="rectangle-container" id="rectangle2-container">
+            <div class="rectangle-content" id="rectangle2-content">
                 <h3>Legal Forces</h3>
-                <button class="learn-more" onclick="toggleRectangle('legalForces')">Learn More</button>
-                <div class="info-content">
-                    <!-- Add your Legal Forces content here -->
-                </div>
+                <button class="learn-more" id="learn-more-2">Learn More</button>
+            </div>
+            <div class="expanded-content" id="expanded-content-2">
+                <button class="learn-more" id="close-2">Close</button>
+                <!-- Add your content for Legal Forces here -->
             </div>
         </div>
     </main>
 
     <script>
-        function toggleRectangle(rectangleId) {
-            const rectangle = document.getElementById(rectangleId);
-            const button = rectangle.querySelector('.learn-more');
-            const infoContent = rectangle.querySelector('.info-content');
-
-            if (rectangle.classList.contains('expanded')) {
-                rectangle.classList.remove('expanded');
-                button.textContent = 'Learn More';
-            } else {
-                rectangle.classList.add('expanded');
-                button.textContent = 'Close';
-            }
-        }
+        // JavaScript to handle the expand/collapse functionality
+        document.querySelectorAll('.learn-more').forEach(button => {
+            button.addEventListener('click', function () {
+                const id = this.id.split('-')[2];
+                const content = document.getElementById(`expanded-content-${id}`);
+                const rectangle = document.getElementById(`rectangle${id}-content`);
+                
+                if (this.textContent === 'Learn More') {
+                    content.classList.add('show');
+                    rectangle.classList.add('expanded');
+                    this.textContent = 'Close';
+                } else {
+                    content.classList.remove('show');
+                    rectangle.classList.remove('expanded');
+                    this.textContent = 'Learn More';
+                }
+            });
+        });
     </script>
 </body>
 </html>
