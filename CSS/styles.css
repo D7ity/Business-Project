@@ -356,6 +356,7 @@ button:hover {
 }
 
 .mission-statement h1 {
+    text-align: center; /* Ensure the heading is centered */
     font-size: 2rem; /* Adjust font size for the heading */
     margin-bottom: 20px; /* Add spacing below the heading */
 }
