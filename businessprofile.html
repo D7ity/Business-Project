@@ -12,7 +12,7 @@
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
             <a href="index.html" class="navButton">Main</a>
-            <a href="aboutus.html" class="navButton active">About Us</a>
+            <a href="aboutus.html" class="navButton">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
             <a href="support.html" class="navButton">Support</a>
         </nav>
@@ -20,20 +20,56 @@
 
     <main>
         <h2>Developing a Business Profile</h2>
-        <p>Content for the Developing a Business Profile page...</p>
+        <div class="rectangles-container">
+            <!-- Smart Goals Rectangle -->
+            <div class="rectangle" id="smartGoals">
+                <h3>Smart Goals</h3>
+                <button class="learn-more" onclick="toggleRectangle('smartGoals')">Learn More</button>
+                <div class="info-content">
+                    <h4>Objective 1: Increasing Sales</h4>
+                    <ul>
+                        <li><strong>Specific:</strong> Increase sales of graveyard plots by 20% within the next 12 months by targeting both preneed and currently need customers.</li>
+                        <li><strong>Measurable:</strong> Track the number of graveyard plots sold each quarter and compare against the previous year’s figures.</li>
+                        <li><strong>Achievable:</strong> Implement targeted online and offline advertising campaigns, offer limited-time discounts, and partner with local retirement communities.</li>
+                        <li><strong>Relevant:</strong> This goal aligns with our mission to provide peace of mind preservation by making our services more accessible.</li>
+                        <li><strong>Time-bound:</strong> Achieve the 20% increase by the end of the next 12 months, with quarterly check-ins to check progress.</li>
+                    </ul>
+                    <h4>Objective 2: Improving Relationships with Customers</h4>
+                    <ul>
+                        <li><strong>Specific:</strong> Increase customer satisfaction scores by 15% within the next 6 months by enhancing customer service and providing personalized support.</li>
+                        <li><strong>Measurable:</strong> Use customer satisfaction surveys.</li>
+                        <li><strong>Achievable:</strong> Train employees on empathy and customer service best practices, and implement follow-up procedures to ensure customer needs are met after the sale.</li>
+                        <li><strong>Relevant:</strong> This goal supports our mission by ensuring we provide compassionate service.</li>
+                        <li><strong>Time-bound:</strong> Achieve a 15% increase in customer satisfaction within 6 months, with monthly reviews to monitor progress.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Legal Forces Rectangle -->
+            <div class="rectangle" id="legalForces">
+                <h3>Legal Forces</h3>
+                <button class="learn-more" onclick="toggleRectangle('legalForces')">Learn More</button>
+                <div class="info-content">
+                    <!-- Add your Legal Forces content here -->
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentLocation = window.location.pathname.split("/").pop();
-            const navButtons = document.querySelectorAll('.navButton');
-            navButtons.forEach(button => {
-                if (button.getAttribute('href') === currentLocation) {
-                    button.classList.add('active');
-                }
-            });
-        });
+        function toggleRectangle(rectangleId) {
+            const rectangle = document.getElementById(rectangleId);
+            const button = rectangle.querySelector('.learn-more');
+            const infoContent = rectangle.querySelector('.info-content');
+
+            if (rectangle.classList.contains('expanded')) {
+                rectangle.classList.remove('expanded');
+                button.textContent = 'Learn More';
+            } else {
+                rectangle.classList.add('expanded');
+                button.textContent = 'Close';
+            }
+        }
     </script>
 </body>
 </html>
-
