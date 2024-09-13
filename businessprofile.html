@@ -92,12 +92,13 @@
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
             position: absolute;
             bottom: 10px; /* Position at the bottom of the expanded rectangle */
-            left: 10px; /* Align with title */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust centering */
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover */
         }
 
         .close-btn:hover {
-            transform: translateY(-5px); /* Lift up on hover */
+            transform: translate(-50%, -5px); /* Lift up on hover */
             background-color: #ff7f84;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
         }
@@ -194,5 +195,4 @@
     </script>
 </body>
 </html>
-``
 
