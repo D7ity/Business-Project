@@ -346,7 +346,7 @@ button:hover {
 
 /* Mission statement styling */
 .mission-statement {
-    text-align: center; /* Center the text */
+    text-align: center; /* Ensure all text inside this block is centered */
     color: white; /* Set text color to white */
     max-width: 800px; /* Set max width */
     margin: 0 auto; /* Center the block element */
@@ -356,11 +356,16 @@ button:hover {
 }
 
 .mission-statement h2 {
-    text-align: center; /* Ensure the heading is centered */
-    font-size: 5rem; /* Adjust font size for the heading */
+    text-align: center; /* Ensure the heading itself is centered */
+    font-size: 2rem; /* Adjust font size for the heading */
     margin-bottom: 20px; /* Add spacing below the heading */
-    margin-left: 50px; /* Add spacing below the heading */
-    color: white; /* Set text color to white */
-
+    color: white; /* Make sure it's white */
 }
+
+/* Optional: Reset margin or padding on h2 if it has default styles */
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
 
