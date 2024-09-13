@@ -344,3 +344,13 @@ button:hover {
     transform: scale(1.02); /* Slightly scale up on hover */
 }
 
+/* Mission statement styling */
+.mission-statement {
+    text-align: center; /* Center the text */
+    color: white; /* Set text color to white */
+    max-width: 800px; /* Set max width */
+    margin: 0 auto; /* Center the block element */
+    line-height: 1.5; /* Make the text more readable */
+    padding: 20px; /* Add padding */
+    font-size: 1.2rem; /* Adjust font size as needed */
+}
