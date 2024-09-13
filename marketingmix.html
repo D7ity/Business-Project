@@ -88,6 +88,16 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+        /* Dot under 'About Us' navigation */
+        .navButton.active::after {
+            content: '•';
+            color: red;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -95,7 +105,7 @@
         <h1>Hatch's Caskets</h1>
         <nav id="navMenu">
             <a href="index.html" class="navButton">Main</a>
-            <a href="aboutus.html" class="navButton">About Us</a>
+            <a href="aboutus.html" class="navButton active">About Us</a>
             <a href="pricing.html" class="navButton">Pricing</a>
             <a href="support.html" class="navButton">Support</a>
         </nav>
@@ -107,21 +117,26 @@
                 <h3>Experimentation Method</h3>
                 <button class="learn-more" data-target="#rectangle1">Learn More</button>
                 <div class="info">
-                    <p>To monitor the customer behaviour for our sales, we will do an experiment revolving around surveying / interviewing, specifically those aged 55+ in retirement homes as they will be the ones occupying the plots after rest, or those considering end of life plans. In addition, we will use A/B testing to compare responses to different strategies we put in place, and therefore observe the reactions we receive to such strategies in whether it leads to inquiries and purchases or not. Furthermore, Analysing this data will reveal key factors that could influence customer decisions, ultimately allowing us to tailor our marketing approach to address our consumers emotional and practical concerns </p>
+                    <p>To monitor the customer behaviour for our sales, we will do an experiment revolving around surveying / interviewing, specifically those aged 55+ in retirement homes as they will be the ones occupying the plots after rest, or those considering end of life plans...</p>
                 </div>
             </div>
             <div id="rectangle2" class="rectangle">
                 <h3>Secondary Data</h3>
                 <button class="learn-more" data-target="#rectangle2">Learn More</button>
                 <div class="info">
-                    <p>Selling graveyard plots, which is under the “Rental,hiring and real estate services” sector has a figure of 1681 which is a moderately high value, evidently indicating that the industry is stable and has a potential growing demand, ultimately validating cemetery plots as a potential real estate investment. Moreover, the “Health care and social assistance” sector has a figure of 2781, evidently showing us that we can find opportunities for collaboration with healthcare providers without too much difficulty. In addition, since many individuals make their end of life arrangements through these health care services, by targeting this sector, we can reach a broader audience and secure sales. </p>
+                    <p>Selling graveyard plots, which is under the “Rental, hiring and real estate services” sector has a figure of 1681 which is a moderately high value...</p>
                 </div>
             </div>
             <div id="rectangle3" class="rectangle">
                 <h3>Target Market Attribute</h3>
                 <button class="learn-more" data-target="#rectangle3">Learn More</button>
                 <div class="info">
-                    <p>Here, we will explore key attributes of our target market and their behaviors...</p>
+                    <p>
+                        A) Our targets suburban and rural areas with available space and ageing populations, where burial traditions are prevalent. It focuses on individuals aged 55 and older from middle-to-upper income households who are planning for end-of-life arrangements. Psychographically, it appeals to those who value tradition and security, and those who seek to ensure their final resting place aligns with their family’s values. The behavioural segment is less relevant, as purchasing a cemetery plot is a significant, one-time decision (if you pay enough for our cemetery) rather than a regular purchasing habit.
+                    </p>
+                    <p>
+                        B) Consumer Trends reflect short-term, observable shifts in the market influenced by sociocultural factors, such as a growing interest in personalised and meaningful end-of-life arrangements driven by increased emphasis on family heritage and tradition whereas Consumer Behaviour encompasses the long-term patterns and decision-making processes of individuals within the market, such as individuals having ongoing tradition within their family in ensuring their final resting place is meaningful.
+                    </p>
                 </div>
             </div>
         </div>
