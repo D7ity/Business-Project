@@ -48,6 +48,9 @@
             top: 10px; /* Adjust as needed */
             left: 10px; /* Adjust as needed */
             width: calc(100% - 20px); /* Ensure full width minus padding */
+            z-index: 1; /* Ensure header is on top */
+            background: #ffcccb; /* Background color to match rectangle */
+            padding: 10px; /* Add padding to ensure header is visible */
         }
 
         .rectangle1 .info, .rectangle2 .info {
@@ -55,6 +58,13 @@
             padding: 10px;
             overflow-y: auto; /* Enable vertical scrolling */
             height: calc(100% - 60px); /* Adjust height to fit within the rectangle */
+            position: absolute;
+            top: 50px; /* Position below the header */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0; /* Ensure info is behind the header */
+            background: #fff; /* White background for content */
         }
 
         .rectangle1.expanded .info, .rectangle2.expanded .info {
