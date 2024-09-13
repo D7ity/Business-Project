@@ -140,7 +140,7 @@
                 <h3>Legal Forces</h3>
                 <button class="learn-more" data-target="#rectangle2">Learn More</button>
                 <div class="info">
-                    <p>Details about Legal Forces go here.</p>
+                    <p>Legal forces in Australia, such as zoning laws, land regulations, and burial act requirements, will influence how we will implement its marketing strategies, including building relationships in retirement homes and respectful social media messaging. When creating relationships with individuals in retirement homes, legal compliance will also be necessary to ensure that any promotional efforts are not seen as coercive or misleading, adhering to consumer protection laws. Additionally, zoning and burial laws will affect how and where we can promote our services in these environments.</p>
                 </div>
             </div>
         </div>
@@ -180,19 +180,17 @@
                             closeButton.addEventListener('click', () => {
                                 targetRectangle.classList.remove('expanded');
                                 closeButton.style.display = 'none'; // Hide 'Close' button
-                                button.style.display = 'block'; // Show 'Learn More' button
+                                button.style.display = 'block'; // Show 'Learn More' button again
                                 targetRectangle.querySelector('.info').style.display = 'none'; // Hide info
                             });
                         }
-                        closeButton.style.display = 'block'; // Show 'Close' button
                         targetRectangle.querySelector('.info').style.display = 'block'; // Show info
+                        closeButton.style.display = 'block'; // Show 'Close' button
+                        expandedRectangle = targetRectangle;
                     }
-
-                    expandedRectangle = targetRectangle;
                 });
             });
         });
     </script>
 </body>
 </html>
-
