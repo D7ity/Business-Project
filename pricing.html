@@ -55,7 +55,14 @@
 
         /* Hidden content for Learn More expansion */
         .expanded-content {
-            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding: 0;
+        }
+
+        .expanded-content.show {
+            max-height: 200px; /* Adjust based on the content */
             padding-top: 10px;
         }
     </style>
@@ -115,17 +122,30 @@
         // Functionality for Learn More button to expand content
         document.addEventListener('DOMContentLoaded', function () {
             const learnMoreButtons = document.querySelectorAll('.learn-more');
+            let currentOpenContent = null;
 
             learnMoreButtons.forEach(button => {
                 button.addEventListener('click', function (event) {
                     event.preventDefault();
                     const service = this.getAttribute('data-service');
                     const content = document.getElementById(`${service}Content`);
-                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+
+                    if (currentOpenContent && currentOpenContent !== content) {
+                        currentOpenContent.classList.remove('show');
+                    }
+
+                    if (content.classList.contains('show')) {
+                        content.classList.remove('show');
+                        currentOpenContent = null;
+                    } else {
+                        content.classList.add('show');
+                        currentOpenContent = content;
+                    }
                 });
             });
         });
     </script>
 </body>
 </html>
+
 
