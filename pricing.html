@@ -6,6 +6,75 @@
     <title>Main - Hatch's Caskets</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        /* Styling for squares */
+        .pricing-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .service-square {
+            flex: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-square:hover {
+            transform: scale(1.05);
+        }
+
+        .service-square h3 {
+            margin-bottom: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #ff5964;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #e04f5f;
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            background-color: #c43c3c;
+        }
+
+        /* Hidden content for Learn More expansion */
+        .expanded-content {
+            display: none;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header id="header">
@@ -19,22 +88,59 @@
     </header>
     
     <main>
-        <h2>Pricing</h2>
-        <p>Check out our pricing details...</p>
+        <div class="pricing-grid">
+            <!-- Normal Plot Service -->
+            <div class="service-square" id="normalPlot">
+                <h3>Normal Plot Service</h3>
+                <div class="buttons">
+                    <a href="#" class="button learn-more" data-service="normal">Learn More</a>
+                    <a href="purchase.html" class="button">Purchase</a>
+                </div>
+                <div class="expanded-content" id="normalContent">
+                    <p>Normal Plot Service includes basic features...</p>
+                </div>
+            </div>
+
+            <!-- Premium Plot Service -->
+            <div class="service-square" id="premiumPlot">
+                <h3>Premium Plot Service</h3>
+                <div class="buttons">
+                    <a href="#" class="button learn-more" data-service="premium">Learn More</a>
+                    <a href="purchase.html" class="button">Purchase</a>
+                </div>
+                <div class="expanded-content" id="premiumContent">
+                    <p>Premium Plot Service includes extended features and more...</p>
+                </div>
+            </div>
+
+            <!-- Bundled Plot Service -->
+            <div class="service-square" id="bundledPlot">
+                <h3>Bundled Plot Service</h3>
+                <div class="buttons">
+                    <a href="#" class="button learn-more" data-service="bundled">Learn More</a>
+                    <a href="purchase.html" class="button">Purchase</a>
+                </div>
+                <div class="expanded-content" id="bundledContent">
+                    <p>Bundled Plot Service includes multiple plots with discounts...</p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
-        // Active button set without opacity changes
-        window.onload = function() {
-            const currentLocation = window.location.pathname.split("/").pop();
-            const navButtons = document.querySelectorAll('.navButton');
-            navButtons.forEach(button => {
-                if (button.getAttribute('href') === currentLocation) {
-                    button.classList.add('active');
-                }
+        // Functionality for Learn More button to expand content
+        document.addEventListener('DOMContentLoaded', function () {
+            const learnMoreButtons = document.querySelectorAll('.learn-more');
+
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const service = this.getAttribute('data-service');
+                    const content = document.getElementById(`${service}Content`);
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
             });
-        };
+        });
     </script>
 </body>
 </html>
-
