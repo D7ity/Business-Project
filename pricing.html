@@ -21,7 +21,9 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, height 0.3s ease;
+            height: 200px; /* Revert to original size */
+            overflow: hidden;
         }
 
         .service-square:hover {
@@ -59,6 +61,11 @@
         .expanded-content {
             display: none;
             padding-top: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-square.expanded {
+            height: 300px; /* Expanded height */
         }
     </style>
 </head>
@@ -117,20 +124,34 @@
     </main>
 
     <script>
-        // Functionality for Learn More button to expand content
+        // Functionality for Learn More button to expand content with only one open at a time
         document.addEventListener('DOMContentLoaded', function () {
             const learnMoreButtons = document.querySelectorAll('.learn-more');
+            let currentlyExpanded = null;
 
             learnMoreButtons.forEach(button => {
                 button.addEventListener('click', function (event) {
                     event.preventDefault();
                     const service = this.getAttribute('data-service');
                     const content = document.getElementById(`${service}Content`);
-                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                    const parentSquare = this.closest('.service-square');
+
+                    // Close currently expanded content if it exists
+                    if (currentlyExpanded && currentlyExpanded !== parentSquare) {
+                        currentlyExpanded.querySelector('.expanded-content').style.display = 'none';
+                        currentlyExpanded.classList.remove('expanded');
+                    }
+
+                    // Toggle the selected content
+                    const isExpanded = parentSquare.classList.contains('expanded');
+                    content.style.display = isExpanded ? 'none' : 'block';
+                    parentSquare.classList.toggle('expanded');
+                    
+                    // Set the new currently expanded square
+                    currentlyExpanded = isExpanded ? null : parentSquare;
                 });
             });
         });
     </script>
 </body>
 </html>
-
