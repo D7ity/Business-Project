@@ -15,15 +15,13 @@
         }
 
         .service-square {
-            flex: 1;
+            flex: 0 1 calc(25% - 20px); /* Reduced the width by 25% */
             padding: 20px;
             background-color: #f9c2d1; /* Pink color from the other rectangles */
             border-radius: 10px;
             text-align: center;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, height 0.3s ease;
-            height: 200px; /* Revert to original size */
-            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
         .service-square:hover {
@@ -45,7 +43,9 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-size: 16px;
             width: 150px; /* Ensure buttons are the same width */
+            height: 45px; /* Same height for both buttons */
             text-align: center;
+            line-height: 25px; /* Ensure proper vertical alignment of text */
         }
 
         .button:hover {
@@ -61,11 +61,6 @@
         .expanded-content {
             display: none;
             padding-top: 10px;
-            transition: opacity 0.3s ease;
-        }
-
-        .service-square.expanded {
-            height: 300px; /* Expanded height */
         }
     </style>
 </head>
@@ -81,9 +76,6 @@
     </header>
     
     <main>
-        <h2>Pricing</h2>
-        <p>Check out our pricing details...</p>
-
         <div class="pricing-grid">
             <!-- Normal Plot Service -->
             <div class="service-square" id="normalPlot">
@@ -124,31 +116,22 @@
     </main>
 
     <script>
-        // Functionality for Learn More button to expand content with only one open at a time
+        // Functionality for Learn More button to expand content
         document.addEventListener('DOMContentLoaded', function () {
             const learnMoreButtons = document.querySelectorAll('.learn-more');
-            let currentlyExpanded = null;
 
             learnMoreButtons.forEach(button => {
                 button.addEventListener('click', function (event) {
                     event.preventDefault();
+
+                    // Close any open content
+                    document.querySelectorAll('.expanded-content').forEach(content => {
+                        content.style.display = 'none';
+                    });
+
                     const service = this.getAttribute('data-service');
                     const content = document.getElementById(`${service}Content`);
-                    const parentSquare = this.closest('.service-square');
-
-                    // Close currently expanded content if it exists
-                    if (currentlyExpanded && currentlyExpanded !== parentSquare) {
-                        currentlyExpanded.querySelector('.expanded-content').style.display = 'none';
-                        currentlyExpanded.classList.remove('expanded');
-                    }
-
-                    // Toggle the selected content
-                    const isExpanded = parentSquare.classList.contains('expanded');
-                    content.style.display = isExpanded ? 'none' : 'block';
-                    parentSquare.classList.toggle('expanded');
-                    
-                    // Set the new currently expanded square
-                    currentlyExpanded = isExpanded ? null : parentSquare;
+                    content.style.display = 'block'; // Open clicked content
                 });
             });
         });
