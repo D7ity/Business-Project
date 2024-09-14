@@ -15,9 +15,9 @@
         }
 
         .service-square {
-            flex: 0 1 calc(25% - 20px); /* Reduced the width by 25% */
+            flex: 1;
             padding: 20px;
-            background-color: #f9c2d1; /* Pink color from the other rectangles */
+            background-color: #f4f4f4;
             border-radius: 10px;
             text-align: center;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
@@ -42,10 +42,6 @@
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-size: 16px;
-            width: 150px; /* Ensure buttons are the same width */
-            height: 45px; /* Same height for both buttons */
-            text-align: center;
-            line-height: 25px; /* Ensure proper vertical alignment of text */
         }
 
         .button:hover {
@@ -123,18 +119,13 @@
             learnMoreButtons.forEach(button => {
                 button.addEventListener('click', function (event) {
                     event.preventDefault();
-
-                    // Close any open content
-                    document.querySelectorAll('.expanded-content').forEach(content => {
-                        content.style.display = 'none';
-                    });
-
                     const service = this.getAttribute('data-service');
                     const content = document.getElementById(`${service}Content`);
-                    content.style.display = 'block'; // Open clicked content
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
                 });
             });
         });
     </script>
 </body>
 </html>
+
